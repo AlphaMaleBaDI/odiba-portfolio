@@ -1,498 +1,1707 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Christopher Israel Ahiome - Backend Systems Engineer | Portfolio</title>
-<style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6;
-    color: #e0e0e0;
-    background: #0a0e17;
-  }
-  .hero {
-    text-align: center;
-    padding: 80px 20px 50px;
-    background: linear-gradient(170deg, #0a0e17 0%, #111827 100%);
-    border-bottom: 1px solid #1e293b;
-  }
-  .hero h1 { font-size: 2.5rem; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
-  .hero .role { font-size: 1.15rem; color: #3b82f6; font-weight: 500; margin-top: 4px; }
-  .hero .tagline { font-size: 1rem; color: #94a3b8; margin-top: 8px; max-width: 650px; margin-left: auto; margin-right: auto; }
-  .hero .links { margin-top: 20px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-  .hero .links a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; padding: 8px 16px; border: 1px solid #334155; border-radius: 6px; transition: all 0.2s; }
-  .hero .links a:hover { color: #fff; border-color: #3b82f6; background: rgba(59,130,246,0.1); }
-  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-  .section { padding: 50px 0; }
-  .section-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #3b82f6; margin-bottom: 8px; font-weight: 600; }
-  .section-heading { font-size: 1.6rem; color: #fff; font-weight: 700; margin-bottom: 24px; }
-  .divider { border: none; border-top: 1px solid #1e293b; margin: 0; }
-  .project-card {
-    background: #111827; border: 1px solid #1e293b; border-radius: 10px;
-    padding: 28px 30px; margin-bottom: 20px; transition: border-color 0.2s;
-  }
-  .project-card:hover { border-color: #334155; }
-  .card-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
-  .project-card h3 { font-size: 1.15rem; color: #fff; font-weight: 700; }
-  .badge { font-size: 0.7rem; background: rgba(59,130,246,0.15); color: #3b82f6; padding: 3px 10px; border-radius: 20px; font-weight: 600; white-space: nowrap; }
-  .badge.green { background: rgba(34,197,94,0.15); color: #22c55e; }
-  .badge.amber { background: rgba(245,158,11,0.15); color: #f59e0b; }
-  .subtitle { font-size: 0.95rem; color: #3b82f6; font-weight: 500; margin-bottom: 10px; }
-  .desc { font-size: 0.9rem; color: #94a3b8; line-height: 1.6; margin-bottom: 14px; }
-  .tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-  .tech span { font-size: 0.75rem; background: #1e293b; color: #94a3b8; padding: 3px 10px; border-radius: 4px; font-weight: 500; }
-  .card-links { display: flex; gap: 14px; flex-wrap: wrap; }
-  .card-links a { font-size: 0.85rem; color: #3b82f6; text-decoration: none; font-weight: 500; }
-  .card-links a:hover { text-decoration: underline; }
-  .arch-block {
-    background: #0f1724; border: 1px solid #1e293b; border-radius: 8px; padding: 20px;
-    margin-top: 12px; font-family: 'Consolas','Fira Code',monospace; font-size: 0.78rem;
-    line-height: 1.7; color: #64748b; overflow-x: auto; white-space: pre;
-  }
-  .arch-block .node { color: #3b82f6; font-weight: 700; }
-  .arch-block .arrow { color: #334155; }
-  .arch-block .label { color: #94a3b8; }
-  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-top: 20px; }
-  .stat-box { background: #111827; border: 1px solid #1e293b; border-radius: 8px; padding: 20px; text-align: center; }
-  .stat-box .number { font-size: 1.8rem; font-weight: 700; color: #3b82f6; }
-  .stat-box .label { font-size: 0.75rem; color: #64748b; margin-top: 2px; text-transform: uppercase; letter-spacing: 1px; }
-  .footer { text-align: center; padding: 40px 20px; border-top: 1px solid #1e293b; color: #475569; font-size: 0.85rem; }
-  .footer a { color: #3b82f6; text-decoration: none; }
-  .footer a:hover { text-decoration: underline; }
-  .about { padding: 0 0 10px; }
-  .about-text { font-size: 0.95rem; color: #94a3b8; line-height: 1.7; max-width: 700px; }
-  .philosophy { padding: 10px 0 0; }
-  .philosophy-text { font-size: 0.95rem; color: #94a3b8; line-height: 1.7; max-width: 700px; font-style: italic; }
-  .currently-building .project-card { border-left: 3px solid #3b82f6; }
-  .currently-building .status-line { font-size: 0.8rem; color: #64748b; margin-top: 8px; }
-  .highlights-list { list-style: none; padding: 0; }
-  .highlights-list li { font-size: 0.9rem; color: #94a3b8; padding: 6px 0; padding-left: 20px; position: relative; }
-  .highlights-list li::before { content: "\2192"; position: absolute; left: 0; color: #3b82f6; font-weight: 700; }
-  @media print {
-    body { background: #fff; color: #1a1a1a; }
-    .hero { background: #fff; border-bottom: 2px solid #000; padding: 30px 20px; }
-    .hero h1 { color: #000; }
-    .hero .role { color: #2a5c8a; }
-    .hero .tagline, .desc { color: #333; }
-    .hero .links a { color: #333; border-color: #ccc; }
-    .divider { border-color: #ddd; }
-    .project-card { background: #f9f9f9; border-color: #ddd; }
-    .project-card h3 { color: #000; }
-    .subtitle { color: #2a5c8a; }
-    .tech span { background: #eee; color: #333; }
-    .card-links a { color: #2a5c8a; }
-    .arch-block { background: #f4f4f4; border-color: #ddd; color: #555; }
-    .arch-block .node { color: #2a5c8a; }
-    .stat-box { background: #f9f9f9; border-color: #ddd; }
-    .stat-box .number { color: #2a5c8a; }
-    .stat-box .label { color: #666; }
-    .section-title { color: #2a5c8a; }
-    .section-heading { color: #000; }
-    .footer { color: #666; border-color: #ddd; }
-    .about-text, .philosophy-text { color: #333; }
-    .highlights-list li { color: #333; }
-    .currently-building .project-card { border-left-color: #2a5c8a; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christopher Israel "OdiBa" Ahiome | Backend & AI Systems Engineer</title>
+  <meta name="description" content="Portfolio of Christopher Israel 'OdiBa' Ahiome — Backend Systems Engineer, API & Database Architect, ZK-SNARKs & Web3 Specialist, and AI Financial Infrastructure Developer.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM & CSS VARIABLES
+       ========================================================================== */
+    :root {
+      --bg-dark: #070a12;
+      --bg-card: rgba(15, 23, 42, 0.65);
+      --bg-card-hover: rgba(26, 38, 66, 0.75);
+      --bg-terminal: #0a0f1d;
+      
+      --accent-cyan: #00f2fe;
+      --accent-blue: #3b82f6;
+      --accent-violet: #8b5cf6;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(0, 242, 254, 0.3);
+      
+      --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Background Canvas */
+    #bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    /* Radial Ambient Light Glows */
+    .ambient-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.15;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .glow-1 { top: -100px; left: -100px; background: radial-gradient(circle, var(--accent-cyan), var(--accent-blue)); }
+    .glow-2 { top: 40%; right: -150px; background: radial-gradient(circle, var(--accent-violet), #ec4899); }
+    .glow-3 { bottom: 10%; left: 10%; background: radial-gradient(circle, var(--accent-blue), var(--accent-emerald)); }
+
+    /* Layout Containers */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+      margin: 0;
+    }
+
+    /* Section Titles */
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-cyan);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .section-tag::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 10px var(--accent-cyan);
+    }
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.5px;
+      margin-bottom: 32px;
+    }
+
+    /* ==========================================================================
+       FLOATING GLASS HEADER NAVIGATION
+       ========================================================================== */
+    .header-nav {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 900px;
+      z-index: 100;
+      background: rgba(10, 15, 29, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 40px;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: var(--transition);
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-brand span {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-cyan);
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent-cyan);
+      border-radius: 2px;
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
+
+    .cta-button {
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 8px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+    }
+
+    /* Mobile Nav Toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       HERO SECTION & LIVE TERMINAL
+       ========================================================================== */
+    .hero-section {
+      padding-top: 140px;
+      padding-bottom: 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .availability-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: var(--accent-emerald);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 10px var(--accent-emerald);
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 3.1rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+    .hero-title .highlight {
+      background: linear-gradient(135deg, #ffffff 30%, var(--accent-cyan) 70%, var(--accent-blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-roles {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      color: var(--accent-cyan);
+      height: 32px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+    }
+
+    .typewriter-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1.1rem;
+      background: var(--accent-cyan);
+      margin-left: 4px;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+    .hero-tagline {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 540px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      transform: translateY(-2px);
+    }
+
+    /* Terminal CLI Widget */
+    .terminal-card {
+      background: var(--bg-terminal);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+    }
+
+    .terminal-header {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .terminal-title {
+      color: var(--text-subtle);
+      font-size: 0.75rem;
+    }
+
+    .terminal-body {
+      padding: 18px;
+      min-height: 260px;
+      max-height: 320px;
+      overflow-y: auto;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .terminal-line { margin-bottom: 8px; }
+    .t-prompt { color: var(--accent-cyan); }
+    .t-cmd { color: #fff; font-weight: 600; }
+    .t-out { color: var(--text-muted); padding-left: 12px; }
+    .t-success { color: var(--accent-emerald); }
+    .t-accent { color: var(--accent-blue); }
+
+    .terminal-input-row {
+      display: flex;
+      align-items: center;
+      padding: 10px 18px;
+      background: rgba(0, 0, 0, 0.2);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .terminal-input-row input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      width: 100%;
+      margin-left: 8px;
+    }
+
+    .quick-cmds {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .cmd-chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 0.7rem;
+      color: var(--accent-cyan);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .cmd-chip:hover {
+      background: rgba(0, 242, 254, 0.15);
+      border-color: var(--accent-cyan);
+    }
+
+    /* ==========================================================================
+       IMPACT STATS COUNTER SECTION
+       ========================================================================== */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .stat-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-glow);
+      box-shadow: 0 10px 30px rgba(0, 242, 254, 0.1);
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff 40%, var(--accent-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       CATEGORY FILTER & SEARCH BAR
+       ========================================================================== */
+    .filter-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+      background: var(--bg-card);
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tab-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(59, 130, 246, 0.15));
+      color: var(--accent-cyan);
+      font-weight: 600;
+      border: 1px solid rgba(0, 242, 254, 0.3);
+    }
+
+    .tab-count {
+      font-size: 0.72rem;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 7px;
+      border-radius: 12px;
+    }
+
+    .search-box {
+      position: relative;
+      min-width: 240px;
+    }
+
+    .search-box input {
+      width: 100%;
+      background: rgba(7, 10, 18, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 8px 14px 8px 36px;
+      color: #fff;
+      font-size: 0.85rem;
+      outline: none;
+      transition: var(--transition);
+    }
+    .search-box input:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 12px rgba(0, 242, 254, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-subtle);
+      font-size: 0.9rem;
+      pointer-events: none;
+    }
+
+    /* ==========================================================================
+       PROJECT CARDS & MASONRY GRID
+       ========================================================================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(14px);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0, 242, 254, 0.4);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 242, 254, 0.1);
+    }
+
+    .card-top {
+      margin-bottom: 20px;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      gap: 10px;
+    }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .badge-green { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-blue { background: rgba(59, 130, 246, 0.15); color: var(--accent-blue); border: 1px solid rgba(59, 130, 246, 0.3); }
+    .badge-amber { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-cyan { background: rgba(0, 242, 254, 0.15); color: var(--accent-cyan); border: 1px solid rgba(0, 242, 254, 0.3); }
+
+    .project-subtitle {
+      font-size: 0.92rem;
+      color: var(--accent-cyan);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .tech-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+    .tech-tag:hover {
+      background: rgba(0, 242, 254, 0.1);
+      color: var(--accent-cyan);
+      border-color: rgba(0, 242, 254, 0.3);
+    }
+
+    .card-footer-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+      gap: 12px;
+    }
+
+    .link-group {
+      display: flex;
+      gap: 14px;
+    }
+
+    .card-link {
+      font-size: 0.85rem;
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: var(--transition);
+    }
+    .card-link:hover {
+      color: #fff;
+      transform: translateX(2px);
+    }
+
+    /* ==========================================================================
+       ANIMATED ARCHITECTURE VISUALIZERS
+       ========================================================================== */
+    .arch-flow-wrapper {
+      background: var(--bg-terminal);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+    }
+
+    .flow-diagram-title {
+      font-size: 0.75rem;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pipeline-nodes {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      line-height: 2.2;
+    }
+
+    .node-box {
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: var(--accent-cyan);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      position: relative;
+      transition: var(--transition);
+    }
+    .node-box:hover {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+    }
+
+    .node-arrow {
+      color: var(--accent-violet);
+      font-weight: bold;
+      animation: pulseArrow 1.5s infinite;
+    }
+
+    @keyframes pulseArrow {
+      0%, 100% { opacity: 0.4; transform: translateX(0); }
+      50% { opacity: 1; transform: translateX(3px); }
+    }
+
+    /* ==========================================================================
+       CURRENTLY BUILDING SECTION
+       ========================================================================== */
+    .building-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.5));
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-cyan);
+      border-radius: 16px;
+      padding: 32px;
+      backdrop-filter: blur(14px);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .footer {
+      padding: 60px 0;
+      text-align: center;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-subtle);
+      font-size: 0.88rem;
+    }
+
+    .footer a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      margin: 0 8px;
+      transition: var(--transition);
+    }
+    .footer a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* Scroll animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.3rem; }
+      .header-nav { width: calc(100% - 24px); }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Hero -->
-<div class="hero">
-  <h1>Christopher Israel &ldquo;OdiBa&rdquo; Ahiome</h1>
-  <div class="role">Backend Systems Engineer &bull; API &amp; Database Architect &bull; Fintech Engineer</div>
-  <div class="tagline">Engineering reliable, secure, and high-throughput backend systems for financial data pipelines, payment networks, and distributed transaction infrastructure.</div>
-  <div class="links">
-    <a href="https://github.com/AlphaMaleBaDI">GitHub</a>
-    <a href="https://linkedin.com/in/ahiome-christopher-102b11141">LinkedIn</a>
-    <a href="mailto:christopherisraelahiome@gmail.com">Email</a>
-    <a href="tel:+2347048702030">07048702030</a>
-  </div>
-</div>
+  <!-- Ambient Glows -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
 
-<!-- About -->
-<div class="container">
-  <div class="section">
-    <div class="about">
-      <div class="section-title">About</div>
-      <p class="about-text">I am a backend systems engineer passionate about building resilient financial infrastructure and developer platforms. My work focuses on designing scalable APIs, distributed systems, blockchain integrations, and AI-powered backend services. I enjoy designing systems that remain understandable, maintainable, and reliable as they scale from prototype to production.</p>
-    </div>
-  </div>
-</div>
+  <!-- Background Particle Canvas -->
+  <canvas id="bg-canvas"></canvas>
 
-<hr class="divider">
-
-<!-- Stats -->
-<div class="container">
-  <div class="section">
-    <div class="section-title">Impact</div>
-    <div class="stats">
-      <div class="stat-box"><div class="number">11</div><div class="label">Production Systems</div></div>
-      <div class="stat-box"><div class="number">1,500+</div><div class="label">Certified Tests</div></div>
-      <div class="stat-box"><div class="number">25+</div><div class="label">Smart Contracts</div></div>
-      <div class="stat-box"><div class="number">95%+</div><div class="label">Contract Coverage</div></div>
-    </div>
-  </div>
-</div>
-
-<hr class="divider">
-
-<!-- SECTION 1: Selected Engineering Work -->
-<div class="container">
-  <div class="section">
-    <div class="section-title">Section 01</div>
-    <div class="section-heading">Selected Engineering Work</div>
-
-    <!-- ProofPass -->
-    <div class="project-card">
-      <div class="card-header">
-        <h3>ProofPass</h3>
-        <span class="badge green">Live on Stellar Testnet</span>
-      </div>
-      <div class="subtitle">Zero-Knowledge Age Verification Protocol</div>
-      <div class="desc">
-        A reusable zero-knowledge identity credential system for the Stellar network. Users prove they are at least 18 without revealing their actual age. Circom zk-SNARK proofs are generated entirely in-browser via snarkjs WASM, verified on-chain by a Soroban smart contract using native BLS12-381 pairing checks, and issued as soulbound on-chain credentials. Other Web3 apps can instantly query credential status without re-verification. Built for the Stellar Hacks: Real-World ZK hackathon.
-      </div>
-      <div class="tech">
-        <span>Circom</span><span>Groth16</span><span>snarkjs</span><span>Soroban</span><span>Rust</span><span>React</span><span>Freighter</span><span>BLS12-381</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/AlphaMaleBaDI/ProofPass">GitHub</a>
-        <a href="https://stellar.expert/explorer/testnet/contract/CD4O7LLL726BLIGN7OC4L24N3N3Q4QQ6AQI7HVCG3BMQFR664DOVPWPM">Stellar Expert</a>
-      </div>
-      <div class="arch-block"><span class="label">Architecture:</span>
-<span class="node">User (Private Age)</span> <span class="arrow">--&gt;</span> <span class="node">snarkjs WASM (In-Browser)</span> <span class="arrow">--&gt;</span> <span class="node">Groth16 Proof</span> <span class="arrow">--&gt;</span> <span class="node">Freighter Wallet</span> <span class="arrow">--&gt;</span> <span class="node">Soroban Contract</span>
-                                                                                                                <span class="arrow">|</span>
-                                                                                              <span class="node">BLS12-381 Pairing Check</span> <span class="arrow">--&gt;</span> <span class="node">On-Chain Credential Issued</span></div>
-    </div>
-
-    <!-- TrustLink -->
-    <div class="project-card">
-      <div class="card-header">
-        <h3>TrustLink</h3>
-        <span class="badge green">Live on Stellar</span>
-      </div>
-      <div class="subtitle">Decentralized Escrow Payments for African Social Commerce</div>
-      <div class="desc">
-        A Next.js web application that makes decentralized escrow feel as simple as sending a payment link. Vendors generate a Smart Escrow Link in seconds. Buyers pay with a Stellar wallet, and funds are held by a Soroban contract until delivery confirmation or dispute resolution. Designed for WhatsApp and Instagram DM commerce across Africa.
-      </div>
-      <div class="tech">
-        <span>Next.js</span><span>TypeScript</span><span>Soroban</span><span>Stellar SDK</span><span>Freighter</span><span>Upstash Redis</span><span>Playwright</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/AlphaMaleBaDI/trust-link-frontend">GitHub</a>
-      </div>
-      <div class="arch-block"><span class="label">Escrow Flow:</span>
-<span class="node">Vendor</span> <span class="arrow">--&gt;</span> <span class="node">Generate Escrow Link</span> <span class="arrow">--&gt;</span> <span class="node">Buyer Pays (Stellar Wallet)</span> <span class="arrow">--&gt;</span> <span class="node">Soroban Contract Locks Funds</span>
-                                                              <span class="arrow">|</span>
-                                              <span class="node">Delivery Confirmed</span> <span class="arrow">--&gt;</span> <span class="node">Release to Vendor</span>
-                                              <span class="node">Dispute Filed</span> <span class="arrow">--&gt;</span> <span class="node">Admin Resolution Panel</span></div>
-    </div>
-
-    <!-- Creditra -->
-    <div class="project-card">
-      <div class="card-header">
-        <h3>Creditra</h3>
-        <span class="badge green">DeFi Protocol</span>
-      </div>
-      <div class="subtitle">Risk-Priced Decentralized Credit Protocol</div>
-      <div class="desc">
-        A decentralized credit protocol that evaluates on-chain behavior to underwrite and dynamically price credit lines without overcollateralization. The dashboard surfaces a live risk gauge, credit-line management, draw/repay flows, and full transaction history. Built with WCAG 2.1 AA accessibility compliance across every component.
-      </div>
-      <div class="tech">
-        <span>React 18</span><span>TypeScript</span><span>Vite</span><span>Stellar SDK</span><span>Multi-Wallet</span><span>Vitest</span><span>axe-core</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/AlphaMaleBaDI/Creditra-Frontend">GitHub</a>
-      </div>
-    </div>
-
-    <!-- The Forge -->
-    <div class="project-card">
-      <div class="card-header">
-        <h3>The Forge</h3>
-        <span class="badge">Flagship Project</span>
-      </div>
-      <div class="subtitle">AI-Driven Financial Data Ingestion &amp; Trading Engine</div>
-      <div class="desc">
-        A high-throughput backend pipeline that ingests real-time financial news via REST APIs, routes structured data through 6 LLM providers with governance scoring, and executes risk-gated trades against Binance. Built with a TimescaleDB-backed financial ledger, persistent cross-session state recovery, and forensic audit trails for every decision.
-      </div>
-      <div class="tech">
-        <span>Python</span><span>LangChain</span><span>Pydantic</span><span>Binance API</span><span>TimescaleDB</span><span>Docker</span><span>1,064+ Tests</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/AlphaMaleBaDI/The-Forge">GitHub</a>
-      </div>
-      <div class="arch-block"><span class="label">Architecture:</span>
-<span class="node">News API</span> <span class="arrow">--&gt;</span> <span class="node">Ingestor</span> <span class="arrow">--&gt;</span> <span class="node">LLM Analyst Pool (6 Providers)</span> <span class="arrow">--&gt;</span> <span class="node">Governance Router</span> <span class="arrow">--&gt;</span> <span class="node">Risk Engine</span> <span class="arrow">--&gt;</span> <span class="node">Execution</span>
-              <span class="arrow">|</span>                    <span class="arrow">|</span>                              <span class="arrow">|</span>                                    <span class="arrow">|</span>
-              <span class="arrow">v</span>                    <span class="arrow">v</span>                              <span class="arrow">v</span>                                    <span class="arrow">v</span>
-      <span class="node">TimescaleDB</span>    <span class="node">Trust Scores</span>                <span class="node">Sentiment Gate</span>              <span class="node">Audit Trails</span></div>
-    </div>
-
-    <!-- Veritasor Backend -->
-    <div class="project-card">
-      <div class="card-header">
-        <h3>Veritasor Backend</h3>
-        <span class="badge amber">Payment Integrations</span>
-      </div>
-      <div class="subtitle">Revenue Attestation API Gateway &amp; Payment Infrastructure</div>
-      <div class="desc">
-        An API gateway handling revenue data normalization, Merkle proof generation, and on-chain submission to Soroban contracts. Includes JWT authentication, business management, anomaly detection with risk scoring (0-100), and payment processor integrations with Stripe, Razorpay, and Shopify OAuth for fee collection and e-commerce data.
-      </div>
-      <div class="tech">
-        <span>Node.js</span><span>TypeScript</span><span>Express</span><span>PostgreSQL</span><span>Stripe</span><span>Razorpay</span><span>Prometheus</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/AlphaMaleBaDI/Veritasor-Backend">GitHub</a>
-      </div>
-    </div>
-
-    <!-- DarkEasternerCollections -->
-    <div class="project-card">
-      <div class="card-header">
-        <h3>DarkEasternerCollections</h3>
-        <span class="badge green">Live in Production</span>
-      </div>
-      <div class="subtitle">Luxury Afro-Luxe E-Commerce Platform</div>
-      <div class="desc">
-        A full-stack luxury e-commerce platform with a commerce-first architecture that separates storefront presentation from administrative operations through a dedicated management interface. Features a complete admin dashboard with product CRUD, inventory management (3-tier: available/coming soon/out of stock), inquiry workflow with WhatsApp concierge integration, Supabase Auth with email-based admin allowlist, and row-level security across all tables. Built with a server-side rendering pipeline for SEO-optimized product pages.
-      </div>
-      <div class="tech">
-        <span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>Tailwind CSS 4</span><span>Supabase</span><span>PostgreSQL</span><span>Framer Motion</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/AlphaMaleBaDI/DarkEasternerCollections">GitHub</a>
-        <a href="https://darkeasternercollections.com">Live Demo</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<hr class="divider">
-
-<!-- SECTION 2: Smart Contract Infrastructure -->
-<div class="container">
-  <div class="section">
-    <div class="section-title">Section 02</div>
-    <div class="section-heading">Smart Contract Infrastructure</div>
-
-    <!-- Veritasor Contracts -->
-    <div class="project-card">
-      <div class="card-header">
-        <h3>Veritasor Contracts</h3>
-        <span class="badge">19 Contracts</span>
-      </div>
-      <div class="subtitle">Revenue Attestation Protocol (Rust/Soroban)</div>
-      <div class="desc">
-        A massive Rust workspace with 19 contract crates covering revenue attestation storage, dynamic fee schedules (tier/volume discounts), attestor staking with slashing, audit logs, revenue bonds, revenue streams, settlement logic, revenue sharing, DAO governance, and lender access control. 130+ tests with 95%+ line coverage enforced per crate.
-      </div>
-      <div class="tech">
-        <span>Rust</span><span>Soroban SDK</span><span>WASM</span><span>cargo-llvm-cov</span><span>130+ Tests</span><span>95%+ Coverage</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/AlphaMaleBaDI/Veritasor-Contracts">GitHub</a>
-      </div>
-    </div>
-
-    <!-- LiquiFact -->
-    <div class="project-card">
-      <div class="card-header">
-        <h3>LiquiFact</h3>
-      </div>
-      <div class="subtitle">Invoice Liquidity Escrow Network</div>
-      <div class="desc">
-        Soroban smart contracts for an invoice factoring platform. Holds investor funds for tokenized invoices until settlement. Supports tiered yield based on commitment lock periods, per-investor contribution tracking, legal holds, attestation logging, SME collateral pledges, and schema migration across 6 versions. 12 test modules with 95%+ coverage enforcement.
-      </div>
-      <div class="tech">
-        <span>Rust</span><span>Soroban</span><span>WASM</span><span>proptest</span><span>12 Test Modules</span><span>95%+ Coverage</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/AlphaMaleBaDI/Liquifact-contracts">GitHub</a>
-      </div>
-    </div>
-
-    <!-- CommitLabs -->
-    <div class="project-card">
-      <div class="card-header">
-        <h3>CommitLabs</h3>
-      </div>
-      <div class="subtitle">Liquidity Commitment Protocol</div>
-      <div class="desc">
-        Decentralized platform for managing liquidity commitments on Stellar. Users create, fund, and trade on-chain commitments that lock assets for a specified duration in exchange for yield. Risk profiles: Safe (5% APY), Balanced (7% APY), Aggressive (10% APY). Includes a secondary marketplace for trading commitments, compliance attestation scoring, and emergency pause mechanisms.
-      </div>
-      <div class="tech">
-        <span>Rust</span><span>Soroban</span><span>Next.js</span><span>TypeScript</span><span>Zod</span><span>Recharts</span><span>Vitest</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/AlphaMaleBaDI/Commitlabs-Frontend">GitHub</a>
-      </div>
-    </div>
-
-    <!-- VestFlow -->
-    <div class="project-card">
-      <div class="card-header">
-        <h3>VestFlow</h3>
-        <span class="badge green">Live on Testnet</span>
-      </div>
-      <div class="subtitle">Trustless Token Vesting on Stellar</div>
-      <div class="desc">
-        Smart contracts and frontend for trustless token vesting schedules. Supports Linear, Cliff, and LinearWithCliff vesting kinds with revocable and irrevocable options. No custodian, no multisig, no trust required. Fully immutable deployment with on-chain events for off-chain indexing. Deployed on Stellar Testnet.
-      </div>
-      <div class="tech">
-        <span>Rust</span><span>Soroban</span><span>Next.js 16</span><span>TypeScript</span><span>Freighter</span><span>cargo test</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/AlphaMaleBaDI/vestflow">GitHub</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<hr class="divider">
-
-<!-- SECTION 3: Backend Engineering & Infrastructure -->
-<div class="container">
-  <div class="section">
-    <div class="section-title">Section 03</div>
-    <div class="section-heading">Backend Engineering &amp; Infrastructure</div>
-
-    <!-- PetChain -->
-    <div class="project-card">
-      <div class="card-header">
-        <h3>PetChain</h3>
-        <span class="badge amber">Full-Stack</span>
-      </div>
-      <div class="subtitle">Decentralized Pet Medical Records (NestJS Backend)</div>
-      <div class="desc">
-        A full-stack NestJS backend with 47+ modules: pets, medical records, vaccinations, prescriptions, surgeries, vet verification, appointments, emergency services, QR codes, zero-knowledge proofs, blockchain integration, GDPR compliance, MFA, Elasticsearch search, push notifications, and certificate management. Deployed with Docker, Kubernetes, and Nginx reverse proxy.
-      </div>
-      <div class="tech">
-        <span>NestJS</span><span>TypeScript</span><span>PostgreSQL</span><span>Redis</span><span>Docker/K8s</span><span>Elasticsearch</span><span>k6</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/AlphaMaleBaDI/petChain-Frontend">GitHub</a>
-      </div>
-      <div class="arch-block"><span class="label">Backend Stack:</span>
-<span class="node">HTTP Request</span> <span class="arrow">--&gt;</span> <span class="node">Nginx Reverse Proxy</span> <span class="arrow">--&gt;</span> <span class="node">NestJS API (47 Modules)</span> <span class="arrow">--&gt;</span> <span class="node">PostgreSQL</span>
-                                              <span class="arrow">|</span>
-                                     <span class="node">Redis Cache</span> + <span class="node">BullMQ Queues</span> + <span class="node">Elasticsearch</span>
-                                              <span class="arrow">|</span>
-                              <span class="node">Stellar Blockchain</span> + <span class="node">IPFS</span> + <span class="node">ZKP Verification</span></div>
-    </div>
-
-    <!-- Fluxora Backend -->
-    <div class="project-card">
-      <div class="card-header">
-        <h3>Fluxora Backend</h3>
-      </div>
-      <div class="subtitle">Blockchain Event Indexer with Batch Processing</div>
-      <div class="desc">
-        High-performance contract event indexer with optimized batch processing achieving 50x insert throughput over single-row insertion. Built with OpenTelemetry tracing, Prometheus metrics, structured logging, WebSocket live streaming, and comprehensive security (Helmet, rate limiting, parameterized queries). 51 test files covering every subsystem.
-      </div>
-      <div class="tech">
-        <span>Node.js</span><span>TypeScript</span><span>Express</span><span>PostgreSQL</span><span>Redis</span><span>OpenTelemetry</span><span>WebSocket</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/AlphaMaleBaDI/Fluxora-Backend">GitHub</a>
-      </div>
-    </div>
-
-    <!-- StellarKit API -->
-    <div class="project-card">
-      <div class="card-header">
-        <h3>StellarKit API</h3>
-      </div>
-      <div class="subtitle">Developer Utility API for Stellar Blockchain</div>
-      <div class="desc">
-        A REST API wrapping the Stellar Horizon blockchain with 18+ endpoints: fee estimation (economy/standard/priority), account details, transaction history, asset metadata, liquidity pool analytics, claimable balance evaluation, DEX order book data, Soroban contract inspection, and live transaction streaming via SSE. Includes API key authentication, cursor-based pagination, and standardized response envelopes.
-      </div>
-      <div class="tech">
-        <span>Node.js</span><span>Express</span><span>Stellar SDK</span><span>Jest</span><span>Supertest</span><span>SSE Streaming</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/AlphaMaleBaDI/stellarkit-api">GitHub</a>
-      </div>
-    </div>
-
-    <!-- AfroVBra -->
-    <div class="project-card">
-      <div class="card-header">
-        <h3>AfroVBra</h3>
-      </div>
-      <div class="subtitle">Multi-Modal Data Processing &amp; Analytics Backend</div>
-      <div class="desc">
-        An async FastAPI backend processing multi-modal data (facial expression, voice MFCC, text sentiment) into structured emotional state vectors. Built with SQLAlchemy 2.0 async ORM, PostgreSQL, Redis caching, Celery task queues for high-volume background processing, and predictive analytics services covering user churn, session forecasting, and cultural trend predictions across 7 regional datasets.
-      </div>
-      <div class="tech">
-        <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Redis</span><span>Celery</span><span>SQLAlchemy 2.0</span><span>WebSockets</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/AlphaMaleBaDI/AfroVBra">GitHub</a>
-      </div>
-      <div class="arch-block"><span class="label">Backend Pipeline:</span>
-<span class="node">HTTP/WebSocket</span> <span class="arrow">--&gt;</span> <span class="node">FastAPI Router</span> <span class="arrow">--&gt;</span> <span class="node">Service Layer</span> <span class="arrow">--&gt;</span> <span class="node">CRUD (Repository)</span> <span class="arrow">--&gt;</span> <span class="node">PostgreSQL</span>
-                                            <span class="arrow">|</span>                    <span class="arrow">|</span>
-                                            <span class="arrow">v</span>                    <span class="arrow">v</span>
-                                   <span class="node">Celery Workers</span>     <span class="node">Redis Cache</span></div>
-    </div>
-
-    </div>
-  </div>
-</div>
-
-<hr class="divider">
-
-<!-- Currently Building -->
-<div class="container">
-  <div class="section currently-building">
-    <div class="section-title">In Progress</div>
-    <div class="section-heading">Currently Building</div>
-    <div class="project-card">
-      <div class="card-header">
-        <h3>CreatorOS</h3>
-      </div>
-      <div class="subtitle">AI Operating System for Creators</div>
-      <div class="desc">
-        Building an AI-native operating system centered on context assembly, semantic memory, multi-agent orchestration, and artifact generation.
-      </div>
-      <div class="tech">
-        <span>Python</span><span>FastAPI</span><span>FAISS</span><span>Multi-Agent</span><span>PyTorch</span>
-      </div>
-      <div class="status-line">Actively evolving through hackathons, open-source collaboration, and ongoing systems research.</div>
-    </div>
-  </div>
-</div>
-
-<hr class="divider">
-
-<!-- Engineering Philosophy -->
-<div class="container">
-  <div class="section philosophy">
-    <div class="section-title">How I Think</div>
-    <div class="section-heading">Engineering Philosophy</div>
-    <p class="philosophy-text">I believe good software is built on clear architecture, measurable correctness, and systems that remain understandable long after the first release. I optimize for maintainability before complexity, correctness before cleverness, and clear interfaces before abstraction.</p>
-    <ul class="highlights-list" style="margin-top: 20px;">
-      <li>Built full-stack applications from architecture to deployment</li>
-      <li>Designed scalable service-oriented backend systems</li>
-      <li>Integrated blockchain and Web3 technologies into production systems</li>
-      <li>Strong debugging and production issue resolution</li>
+  <!-- Floating Glass Navigation -->
+  <header class="header-nav">
+    <a href="#" class="nav-brand">OdiBa<span>.sys</span></a>
+    <ul class="nav-links">
+      <li><a href="#about" class="active">About</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#building">Building</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
     </ul>
-  </div>
-</div>
+    <a href="mailto:christopherisraelahiome@gmail.com" class="cta-button">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      Get in Touch
+    </a>
+  </header>
 
-<!-- Footer -->
-<div class="footer">
-  <p>Christopher Israel &ldquo;OdiBa&rdquo; Ahiome &mdash; Abuja, Nigeria</p>
-  <p style="margin-top:6px;">
-    <a href="mailto:christopherisraelahiome@gmail.com">christopherisraelahiome@gmail.com</a> &bull;
-    <a href="tel:+2347048702030">07048702030</a> &bull;
-    <a href="https://github.com/AlphaMaleBaDI">GitHub</a> &bull;
-    <a href="https://linkedin.com/in/ahiome-christopher-102b11141">LinkedIn</a>
-  </p>
-</div>
+  <!-- HERO SECTION -->
+  <section class="section hero-section" id="about">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left Hero Column -->
+        <div class="reveal">
+          <div class="availability-pill">
+            <span class="status-dot"></span>
+            Available for Systems Architecture & Senior Roles
+          </div>
 
+          <h1 class="hero-title">
+            Christopher Israel <br>
+            <span class="highlight">&ldquo;OdiBa&rdquo; Ahiome</span>
+          </h1>
+
+          <div class="hero-roles">
+            <span id="typewriter-text"></span><span class="typewriter-cursor"></span>
+          </div>
+
+          <p class="hero-tagline">
+            Engineering resilient, high-throughput backend infrastructure, zero-knowledge protocol integrations, distributed transaction systems, and AI financial analytical pipelines.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="cta-button" style="padding: 12px 24px; font-size: 0.95rem;">
+              View Selected Work &rarr;
+            </a>
+            <a href="https://github.com/AlphaMaleBaDI" target="_blank" class="btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              GitHub
+            </a>
+            <a href="https://linkedin.com/in/ahiome-christopher-102b11141" target="_blank" class="btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Terminal Column -->
+        <div class="reveal">
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-title">odiba@systems-node:~ (bash)</div>
+            </div>
+
+            <div class="terminal-body" id="terminal-output">
+              <div class="terminal-line"><span class="t-prompt">odiba@sys:~$</span> <span class="t-cmd">whoami</span></div>
+              <div class="terminal-line t-out">Christopher Israel "OdiBa" Ahiome</div>
+              <div class="terminal-line t-out">Role: Backend & AI Systems Engineer | Soroban & ZK Architect</div>
+              <div class="terminal-line t-out">Location: Abuja, Nigeria</div>
+
+              <div class="terminal-line" style="margin-top:10px;"><span class="t-prompt">odiba@sys:~$</span> <span class="t-cmd">cat core_stack.json</span></div>
+              <div class="terminal-line t-out">{ "primary": ["Rust", "Python", "TypeScript", "Node.js", "Go"], "storage": ["TimescaleDB", "PostgreSQL", "Redis"], "infra": ["Docker", "Kubernetes", "Soroban", "Circom/zk-SNARKs"] }</div>
+
+              <div class="terminal-line" style="margin-top:10px;"><span class="t-prompt">odiba@sys:~$</span> <span class="t-cmd">status</span></div>
+              <div class="terminal-line t-success">&check; All systems operational. 11 production deployments verified.</div>
+            </div>
+
+            <div class="terminal-input-row">
+              <span class="t-prompt">&gt;</span>
+              <input type="text" id="terminal-input" placeholder="Type 'help', 'stats', 'projects', 'contact'..." autocomplete="off">
+            </div>
+
+            <div style="padding: 6px 18px 12px; background: rgba(0,0,0,0.2);">
+              <div class="quick-cmds">
+                <span class="cmd-chip" onclick="runCommand('projects')">projects</span>
+                <span class="cmd-chip" onclick="runCommand('stack')">stack</span>
+                <span class="cmd-chip" onclick="runCommand('stats')">stats</span>
+                <span class="cmd-chip" onclick="runCommand('contact')">contact</span>
+                <span class="cmd-chip" onclick="runCommand('clear')">clear</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- IMPACT STATS SECTION -->
+  <section class="section" id="impact">
+    <div class="container">
+      <div class="section-tag">Impact Metrics</div>
+      <h2 class="section-heading">Engineered for Scale & Reliability</h2>
+
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-number" data-target="11">0</div>
+          <div class="stat-label">Production Systems</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" data-target="1500" data-suffix="+">0</div>
+          <div class="stat-label">Certified Unit Tests</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" data-target="25" data-suffix="+">0</div>
+          <div class="stat-label">Smart Contracts</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" data-target="95" data-suffix="%+">0</div>
+          <div class="stat-label">Contract Code Coverage</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PROJECTS FILTER & SHOWCASE SECTION -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-tag">Section 01</div>
+      <h2 class="section-heading">Selected Engineering Work</h2>
+
+      <!-- Filter Controls -->
+      <div class="filter-controls reveal">
+        <div class="filter-tabs">
+          <button class="tab-btn active" data-filter="all">All Systems <span class="tab-count">14</span></button>
+          <button class="tab-btn" data-filter="web3">ZK &amp; Web3 <span class="tab-count">7</span></button>
+          <button class="tab-btn" data-filter="ai">AI &amp; Trading <span class="tab-count">3</span></button>
+          <button class="tab-btn" data-filter="backend">Backend &amp; Infra <span class="tab-count">4</span></button>
+        </div>
+
+        <div class="search-box">
+          <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="project-search" placeholder="Search tech or project...">
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- ProofPass -->
+        <div class="project-card reveal" data-category="web3">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">ProofPass</h3>
+              <span class="badge badge-green">Live on Stellar Testnet</span>
+            </div>
+            <div class="project-subtitle">Zero-Knowledge Age Verification Protocol</div>
+            <p class="project-desc">
+              A reusable zero-knowledge identity credential system for Stellar. Users prove age requirements without revealing date of birth. Circom zk-SNARK proofs are generated in-browser via snarkjs WASM and verified on-chain by Soroban smart contracts using BLS12-381 pairing checks.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Circom</span>
+              <span class="tech-tag">Groth16</span>
+              <span class="tech-tag">snarkjs</span>
+              <span class="tech-tag">Soroban</span>
+              <span class="tech-tag">Rust</span>
+              <span class="tech-tag">BLS12-381</span>
+            </div>
+
+            <!-- Architecture Flow -->
+            <div class="arch-flow-wrapper">
+              <div class="flow-diagram-title">&boxbox; Architecture Flow</div>
+              <div class="pipeline-nodes">
+                <span class="node-box">User Age</span>
+                <span class="node-arrow">&rarr;</span>
+                <span class="node-box">snarkjs WASM</span>
+                <span class="node-arrow">&rarr;</span>
+                <span class="node-box">Groth16 Proof</span>
+                <span class="node-arrow">&rarr;</span>
+                <span class="node-box">Soroban Contract</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <div class="link-group">
+              <a href="https://github.com/AlphaMaleBaDI/ProofPass" target="_blank" class="card-link">GitHub &rarr;</a>
+              <a href="https://stellar.expert/explorer/testnet/contract/CD4O7LLL726BLIGN7OC4L24N3N3Q4QQ6AQI7HVCG3BMQFR664DOVPWPM" target="_blank" class="card-link">Explorer &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Forge -->
+        <div class="project-card reveal" data-category="ai">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">The Forge</h3>
+              <span class="badge badge-cyan">Flagship Engine</span>
+            </div>
+            <div class="project-subtitle">AI-Driven Financial Data Ingestion &amp; Trading Engine</div>
+            <p class="project-desc">
+              High-throughput financial pipeline that ingests real-time market news, routes data across 6 LLM providers with governance scoring, and executes risk-gated trades on Binance. Uses TimescaleDB for persistent state and forensic decision audit trails.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">Binance API</span>
+              <span class="tech-tag">TimescaleDB</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">1,064+ Tests</span>
+            </div>
+
+            <div class="arch-flow-wrapper">
+              <div class="flow-diagram-title">&boxbox; Execution Pipeline</div>
+              <div class="pipeline-nodes">
+                <span class="node-box">News API</span>
+                <span class="node-arrow">&rarr;</span>
+                <span class="node-box">6 LLM Analyst Pool</span>
+                <span class="node-arrow">&rarr;</span>
+                <span class="node-box">Risk Engine</span>
+                <span class="node-arrow">&rarr;</span>
+                <span class="node-box">Binance Trade</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/The-Forge" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
+        <!-- TrustLink -->
+        <div class="project-card reveal" data-category="web3">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">TrustLink</h3>
+              <span class="badge badge-green">Live on Stellar</span>
+            </div>
+            <div class="project-subtitle">Escrow Payments for Social Commerce</div>
+            <p class="project-desc">
+              Decentralized escrow solution for African social commerce. Vendors generate Smart Escrow Links; buyers fund via Stellar wallets. Funds lock in Soroban contracts until delivery confirmation or dispute resolution.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Soroban</span>
+              <span class="tech-tag">Freighter</span>
+              <span class="tech-tag">Upstash Redis</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/trust-link-frontend" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Veritasor Backend -->
+        <div class="project-card reveal" data-category="backend">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">Veritasor Backend</h3>
+              <span class="badge badge-amber">Payment Gateway</span>
+            </div>
+            <div class="project-subtitle">Revenue Attestation API &amp; Infrastructure</div>
+            <p class="project-desc">
+              API gateway normalizing e-commerce revenue data, building Merkle tree proofs, and submitting attestations on-chain. Features anomaly detection risk scoring (0-100), Stripe/Razorpay/Shopify OAuth integrations.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Stripe API</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/Veritasor-Backend" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
+        <!-- DarkEasternerCollections -->
+        <div class="project-card reveal" data-category="backend">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">DarkEasternerCollections</h3>
+              <span class="badge badge-green">Production E-Commerce</span>
+            </div>
+            <div class="project-subtitle">Luxury Afro-Luxe E-Commerce Platform</div>
+            <p class="project-desc">
+              Full-stack luxury e-commerce platform with isolated admin presentation, 3-tier inventory controls, WhatsApp concierge integration, Supabase Row-Level Security, and server-side rendering for SEO optimization.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Next.js 16</span>
+              <span class="tech-tag">React 19</span>
+              <span class="tech-tag">Tailwind CSS 4</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <div class="link-group">
+              <a href="https://github.com/AlphaMaleBaDI/DarkEasternerCollections" target="_blank" class="card-link">GitHub &rarr;</a>
+              <a href="https://darkeasternercollections.com" target="_blank" class="card-link">Live Site &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PetChain -->
+        <div class="project-card reveal" data-category="backend">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">PetChain Backend</h3>
+              <span class="badge badge-amber">Full-Stack Platform</span>
+            </div>
+            <div class="project-subtitle">Medical Records Architecture (47 Modules)</div>
+            <p class="project-desc">
+              Full-stack NestJS platform with 47 specialized modules: medical history, vet verifications, emergency routing, QR credentials, ZK verification, and Elasticsearch search. Deployed via K8s &amp; Nginx.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">NestJS</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Redis / BullMQ</span>
+              <span class="tech-tag">Elasticsearch</span>
+              <span class="tech-tag">Docker/K8s</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/petChain-Frontend" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Veritasor Contracts -->
+        <div class="project-card reveal" data-category="web3">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">Veritasor Contracts</h3>
+              <span class="badge badge-blue">19 Smart Contracts</span>
+            </div>
+            <div class="project-subtitle">Revenue Attestation Protocol (Rust/Soroban)</div>
+            <p class="project-desc">
+              Comprehensive 19-contract Rust workspace covering fee schedules, attestor staking/slashing, revenue bonds, settlement logic, DAO governance, and lender access controls. 130+ unit tests with 95%+ coverage.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Rust</span>
+              <span class="tech-tag">Soroban SDK</span>
+              <span class="tech-tag">WASM</span>
+              <span class="tech-tag">cargo-llvm-cov</span>
+              <span class="tech-tag">95%+ Coverage</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/Veritasor-Contracts" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
+        <!-- LiquiFact -->
+        <div class="project-card reveal" data-category="web3">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">LiquiFact</h3>
+              <span class="badge badge-cyan">DeFi Escrow</span>
+            </div>
+            <div class="project-subtitle">Invoice Liquidity Escrow Network</div>
+            <p class="project-desc">
+              Soroban contracts for invoice factoring. Manages investor funds for tokenized invoices, tiered commitment APY yields, legal holds, SME collateral pledges, and 6-version schema migrations.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Rust</span>
+              <span class="tech-tag">Soroban</span>
+              <span class="tech-tag">proptest</span>
+              <span class="tech-tag">12 Test Modules</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/Liquifact-contracts" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
+        <!-- CommitLabs -->
+        <div class="project-card reveal" data-category="web3">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">CommitLabs</h3>
+              <span class="badge badge-blue">DeFi Protocol</span>
+            </div>
+            <div class="project-subtitle">Liquidity Commitment Protocol</div>
+            <p class="project-desc">
+              Decentralized liquidity management protocol on Stellar. Allows lockup of assets for tiered yields (Safe 5%, Balanced 7%, Aggressive 10%), secondary market trading, and compliance attestation scoring.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Rust</span>
+              <span class="tech-tag">Soroban</span>
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Recharts</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/Commitlabs-Frontend" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
+        <!-- VestFlow -->
+        <div class="project-card reveal" data-category="web3">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">VestFlow</h3>
+              <span class="badge badge-green">Stellar Testnet</span>
+            </div>
+            <div class="project-subtitle">Trustless Token Vesting Protocol</div>
+            <p class="project-desc">
+              Trustless vesting contracts supporting Linear, Cliff, and LinearWithCliff models with revocable/irrevocable options. Custodian-free, immutable deployment with real-time on-chain event indexing.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Rust</span>
+              <span class="tech-tag">Soroban</span>
+              <span class="tech-tag">Next.js 16</span>
+              <span class="tech-tag">Freighter</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/vestflow" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Fluxora Backend -->
+        <div class="project-card reveal" data-category="backend">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">Fluxora Backend</h3>
+              <span class="badge badge-cyan">50x Throughput</span>
+            </div>
+            <div class="project-subtitle">Blockchain Event Indexer &amp; Streaming</div>
+            <p class="project-desc">
+              High-performance contract event indexer using batch insert optimization achieving 50x throughput. Instrument with OpenTelemetry tracing, Prometheus metrics, and real-time WebSockets.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">OpenTelemetry</span>
+              <span class="tech-tag">WebSocket</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/Fluxora-Backend" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Creditra -->
+        <div class="project-card reveal" data-category="web3">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">Creditra</h3>
+              <span class="badge badge-green">DeFi Protocol</span>
+            </div>
+            <div class="project-subtitle">Risk-Priced Credit Protocol</div>
+            <p class="project-desc">
+              Evaluates on-chain financial history to price credit lines without overcollateralization. Surfaces real-time risk gauges, credit management, draw/repay flows, with WCAG 2.1 AA accessibility compliance.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">React 18</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Vite</span>
+              <span class="tech-tag">Stellar SDK</span>
+              <span class="tech-tag">Vitest</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/Creditra-Frontend" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
+        <!-- AfroVBra -->
+        <div class="project-card reveal" data-category="ai">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">AfroVBra</h3>
+              <span class="badge badge-blue">Multi-Modal AI</span>
+            </div>
+            <div class="project-subtitle">Multi-Modal Emotion Data Processing Backend</div>
+            <p class="project-desc">
+              Async FastAPI backend processing facial, voice MFCC, and text sentiment into structured emotional state vectors. Uses SQLAlchemy 2.0 async ORM, Celery task workers, and predictive churn analytics.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Celery</span>
+              <span class="tech-tag">Redis</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/AfroVBra" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
+        <!-- StellarKit API -->
+        <div class="project-card reveal" data-category="backend">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">StellarKit API</h3>
+              <span class="badge badge-amber">Developer Tools</span>
+            </div>
+            <div class="project-subtitle">Stellar Blockchain Developer Gateway</div>
+            <p class="project-desc">
+              REST API wrapping Stellar Horizon with 18+ endpoints: dynamic fee estimation, account details, claimable balance checks, DEX orderbook metrics, and real-time SSE streaming.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">Stellar SDK</span>
+              <span class="tech-tag">Jest</span>
+              <span class="tech-tag">SSE Streaming</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/stellarkit-api" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- CURRENTLY BUILDING SECTION -->
+  <section class="section" id="building">
+    <div class="container">
+      <div class="section-tag">In Active Development</div>
+      <h2 class="section-heading">Currently Building</h2>
+
+      <div class="building-card reveal">
+        <div class="card-meta">
+          <h3 class="project-title" style="font-size: 1.6rem;">CreatorOS</h3>
+          <span class="badge badge-cyan">AI Operating System</span>
+        </div>
+        <div class="project-subtitle" style="font-size: 1.05rem;">AI-Native OS for Context Assembly &amp; Multi-Agent Orchestration</div>
+        <p class="project-desc" style="font-size: 0.98rem; max-width: 800px; margin-top: 10px;">
+          Building an AI-native operating system centered on context assembly, persistent semantic memory, multi-agent orchestration, FAISS vector search, and automated artifact generation pipelines. Actively evolving through ongoing systems research and hackathons.
+        </p>
+        <div class="tech-stack" style="margin-top: 16px;">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">FAISS</span>
+          <span class="tech-tag">Multi-Agent Systems</span>
+          <span class="tech-tag">PyTorch</span>
+          <span class="tech-tag">Semantic Memory</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PHILOSOPHY SECTION -->
+  <section class="section" id="philosophy">
+    <div class="container">
+      <div class="section-tag">How I Think</div>
+      <h2 class="section-heading">Engineering Philosophy</h2>
+
+      <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 36px; backdrop-filter: blur(14px);" class="reveal">
+        <p style="font-size: 1.1rem; color: var(--text-main); font-style: italic; line-height: 1.7; max-width: 850px;">
+          &ldquo;I believe good software is built on clear architecture, measurable correctness, and systems that remain understandable long after the first release. I optimize for maintainability before complexity, correctness before cleverness, and clear interfaces before abstraction.&rdquo;
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 28px;">
+          <div style="display: flex; gap: 10px; align-items: flex-start;">
+            <span style="color: var(--accent-cyan); font-size: 1.2rem;">&check;</span>
+            <span style="font-size: 0.92rem; color: var(--text-muted);">Built full-stack applications from architecture to deployment</span>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: flex-start;">
+            <span style="color: var(--accent-cyan); font-size: 1.2rem;">&check;</span>
+            <span style="font-size: 0.92rem; color: var(--text-muted);">Designed scalable service-oriented backend systems</span>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: flex-start;">
+            <span style="color: var(--accent-cyan); font-size: 1.2rem;">&check;</span>
+            <span style="font-size: 0.92rem; color: var(--text-muted);">Integrated Web3 and zk-SNARK protocols into production</span>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: flex-start;">
+            <span style="color: var(--accent-cyan); font-size: 1.2rem;">&check;</span>
+            <span style="font-size: 0.92rem; color: var(--text-muted);">Strong forensic debugging &amp; production issue resolution</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p style="font-family: var(--font-display); font-size: 1.1rem; color: #fff; font-weight: 700; margin-bottom: 8px;">
+        Christopher Israel &ldquo;OdiBa&rdquo; Ahiome
+      </p>
+      <p style="margin-bottom: 16px;">Backend &amp; AI Systems Engineer &bull; Abuja, Nigeria</p>
+      <div>
+        <a href="mailto:christopherisraelahiome@gmail.com">christopherisraelahiome@gmail.com</a> &bull;
+        <a href="tel:+2347048702030">07048702030</a> &bull;
+        <a href="https://github.com/AlphaMaleBaDI" target="_blank">GitHub</a> &bull;
+        <a href="https://linkedin.com/in/ahiome-christopher-102b11141" target="_blank">LinkedIn</a>
+      </div>
+      <p style="margin-top: 24px; font-size: 0.78rem;">&copy; <span id="year">2026</span> Christopher Israel Ahiome. Designed with high-performance motion.</p>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+     INTERACTIVE JAVASCRIPT ENGINE
+     ========================================================================== -->
+  <script>
+    // 1. Animated Canvas Background
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const particles = [];
+    const particleCount = 40;
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.radius = Math.random() * 1.5 + 1;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0, 242, 254, 0.4)';
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    function animateCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(0, 242, 254, ${0.15 * (1 - dist / 120)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateCanvas);
+    }
+    animateCanvas();
+
+    // 2. Typewriter Effect
+    const roles = [
+      "Backend Systems Engineer",
+      "API & Database Architect",
+      "Fintech & Web3 Specialist",
+      "AI Financial Infrastructure Engineer"
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typewriterEl = document.getElementById('typewriter-text');
+
+    function typeWriter() {
+      const currentRole = roles[roleIndex];
+      if (isDeleting) {
+        typewriterEl.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typewriterEl.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let speed = isDeleting ? 40 : 80;
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        speed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        speed = 500;
+      }
+
+      setTimeout(typeWriter, speed);
+    }
+    typeWriter();
+
+    // 3. Terminal CLI Logic
+    const termOutput = document.getElementById('terminal-output');
+    const termInput = document.getElementById('terminal-input');
+
+    function runCommand(cmd) {
+      const cleanCmd = cmd.trim().toLowerCase();
+      
+      const linePrompt = document.createElement('div');
+      linePrompt.className = 'terminal-line';
+      linePrompt.innerHTML = `<span class="t-prompt">odiba@sys:~$</span> <span class="t-cmd">${cmd}</span>`;
+      termOutput.appendChild(linePrompt);
+
+      const responseLine = document.createElement('div');
+      responseLine.className = 'terminal-line t-out';
+
+      switch (cleanCmd) {
+        case 'help':
+          responseLine.innerHTML = 'Available commands: <span class="t-accent">projects</span>, <span class="t-accent">stack</span>, <span class="t-accent">stats</span>, <span class="t-accent">contact</span>, <span class="t-accent">clear</span>';
+          break;
+        case 'projects':
+          responseLine.innerHTML = '&bull; ProofPass (ZK-SNARKs/Soroban)<br>&bull; The Forge (AI Trading Engine)<br>&bull; TrustLink (Stellar Escrow)<br>&bull; Veritasor (Revenue Attestation)<br>&bull; PetChain (NestJS 47-Module Backend)';
+          break;
+        case 'stack':
+          responseLine.innerHTML = 'Rust, Soroban, Python, TypeScript, Node.js, NestJS, FastAPI, TimescaleDB, PostgreSQL, Redis, Docker, Circom/Groth16';
+          break;
+        case 'stats':
+          responseLine.innerHTML = '&bull; Production Systems: 11<br>&bull; Unit Tests: 1,500+<br>&bull; Smart Contracts: 25+<br>&bull; Line Coverage: 95%+';
+          break;
+        case 'contact':
+          responseLine.innerHTML = 'Email: <a href="mailto:christopherisraelahiome@gmail.com" style="color:var(--accent-cyan);">christopherisraelahiome@gmail.com</a> | Phone: 07048702030';
+          break;
+        case 'clear':
+          termOutput.innerHTML = '';
+          return;
+        default:
+          responseLine.innerHTML = `Command not recognized: '${cmd}'. Type <span class="t-accent">'help'</span> for list.`;
+      }
+
+      termOutput.appendChild(responseLine);
+      termOutput.scrollTop = termOutput.scrollHeight;
+    }
+
+    termInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && termInput.value.trim() !== '') {
+        runCommand(termInput.value);
+        termInput.value = '';
+      }
+    });
+
+    // 4. Scroll Reveal Animations & Count-Up Numbers
+    const observerOptions = { threshold: 0.15 };
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+
+          // Check if entry has stat counter
+          const statNumber = entry.target.querySelector('.stat-number');
+          if (statNumber && !statNumber.classList.contains('counted')) {
+            statNumber.classList.add('counted');
+            const target = parseInt(statNumber.getAttribute('data-target'));
+            const suffix = statNumber.getAttribute('data-suffix') || '';
+            let current = 0;
+            const increment = target / 30;
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                statNumber.textContent = target.toLocaleString() + suffix;
+                clearInterval(timer);
+              } else {
+                statNumber.textContent = Math.floor(current).toLocaleString() + suffix;
+              }
+            }, 40);
+          }
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // 5. Category Filter & Live Search
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    const searchInput = document.getElementById('project-search');
+
+    function filterProjects() {
+      const activeTab = document.querySelector('.tab-btn.active').getAttribute('data-filter');
+      const searchTerm = searchInput.value.toLowerCase().trim();
+
+      projectCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const cardText = card.textContent.toLowerCase();
+
+        const matchesTab = (activeTab === 'all' || category === activeTab);
+        const matchesSearch = (searchTerm === '' || cardText.includes(searchTerm));
+
+        if (matchesTab && matchesSearch) {
+          card.style.display = 'flex';
+          setTimeout(() => card.style.opacity = '1', 50);
+        } else {
+          card.style.opacity = '0';
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterProjects();
+      });
+    });
+
+    searchInput.addEventListener('input', filterProjects);
+
+    // Active Navigation Highlight on Scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-links a');
+      let currentSection = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        if (pageYOffset >= sectionTop) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Set Current Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
