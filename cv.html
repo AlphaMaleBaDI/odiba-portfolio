@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christopher Israel Ahiome - Backend Systems Engineer</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    background: #f5f5f5;
+    padding: 40px 20px;
+  }
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 50px 55px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.1);
+  }
+
+  /* Header */
+  .header { text-align: center; margin-bottom: 26px; }
+  .header h1 {
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #000;
+  }
+  .header .title {
+    font-size: 13pt;
+    font-weight: 600;
+    color: #2a5c8a;
+    margin-top: 2px;
+  }
+  .header .tagline {
+    font-size: 10pt;
+    font-style: italic;
+    color: #555;
+    margin-top: 4px;
+  }
+  .header .contact {
+    font-size: 9.5pt;
+    color: #444;
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 18px;
+  }
+  .header .contact a { color: #2a5c8a; text-decoration: none; }
+  .header .contact a:hover { text-decoration: underline; }
+
+  /* Sections */
+  .section { margin-bottom: 20px; }
+  .section-title {
+    font-size: 11.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #2a5c8a;
+    border-bottom: 1.5px solid #2a5c8a;
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+  }
+
+  /* Summary */
+  .summary { font-size: 10pt; color: #333; line-height: 1.55; }
+
+  /* Competencies */
+  .competency-grid { display: flex; flex-direction: column; gap: 4px; }
+  .comp-row { display: flex; font-size: 9.5pt; }
+  .comp-cat {
+    font-weight: 700;
+    min-width: 140px;
+    color: #333;
+  }
+  .comp-items { color: #444; }
+
+  /* Tech badge line */
+  .tech-badge-line {
+    font-size: 9.5pt;
+    color: #2a5c8a;
+    background: #f0f4f9;
+    padding: 6px 10px;
+    border-radius: 3px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  /* Experience & Projects */
+  .entry { margin-bottom: 13px; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  .entry-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #000;
+  }
+  .entry-subtitle {
+    font-size: 10pt;
+    font-weight: 600;
+    color: #2a5c8a;
+  }
+  .entry-date {
+    font-size: 9pt;
+    color: #666;
+    white-space: nowrap;
+  }
+  .entry-org {
+    font-size: 10pt;
+    font-weight: 600;
+    color: #333;
+    margin-top: -1px;
+  }
+  .entry-desc {
+    font-size: 9.5pt;
+    color: #333;
+    margin-top: 2px;
+    line-height: 1.5;
+  }
+  .entry ul {
+    list-style: none;
+    margin-top: 2px;
+  }
+  .entry ul li {
+    font-size: 9.5pt;
+    color: #333;
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 1px;
+  }
+  .entry ul li::before {
+    content: "\2013";
+    position: absolute;
+    left: 2px;
+    color: #2a5c8a;
+  }
+  .entry ul li strong { color: #000; }
+  .tech-tags {
+    font-size: 8.5pt;
+    color: #555;
+    margin-top: 3px;
+    font-style: italic;
+  }
+
+  /* Education */
+  .edu-item { font-size: 9.5pt; color: #333; margin-bottom: 3px; }
+  .edu-item strong { font-weight: 600; color: #000; }
+  .edu-item .date { color: #666; }
+
+  /* Highlights */
+  .highlight-item {
+    font-size: 9.5pt;
+    color: #333;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    line-height: 1.5;
+  }
+  .highlight-item::before {
+    content: "\2013";
+    position: absolute;
+    left: 2px;
+    color: #2a5c8a;
+  }
+
+  /* Print */
+  @media print {
+    @page { margin: 0.3in; size: A4; }
+    body { background: #fff; padding: 0; }
+    .page { max-width: none; padding: 0; box-shadow: none; }
+    .header .contact a { color: #2a5c8a; }
+    a { text-decoration: none !important; }
+  }
+
+  @media (max-width: 600px) {
+    .page { padding: 25px 20px; }
+    .header .contact { flex-direction: column; align-items: center; gap: 2px; }
+    .comp-row { flex-direction: column; gap: 0; }
+    .comp-cat { min-width: auto; }
+    .entry-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Christopher Israel &ldquo;OdiBa&rdquo; Ahiome</h1>
+    <div class="title">Backend Systems Engineer | API &amp; Database Architect | Full-Stack Developer</div>
+    <div class="tagline">Engineering reliable, secure, and high-throughput backend systems for complex business logic and financial data pipelines.</div>
+    <div class="contact">
+      <span>409 Lawrence Nwabunor Street, River Park Estate, Abuja</span>
+      <span><a href="tel:+2347048702030">07048702030</a></span>
+      <span><a href="mailto:christopherisraelahiome@gmail.com">christopherisraelahiome@gmail.com</a></span>
+      <a href="https://linkedin.com/in/ahiome-christopher-102b11141">linkedin.com/in/ahiome-christopher</a>
+      <a href="https://github.com/AlphaMaleBaDI">github.com/AlphaMaleBaDI</a>
+      <a href="https://odiba-portfolio.vercel.app">odiba-portfolio.vercel.app</a>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="section">
+    <div class="section-title">Professional Summary</div>
+    <div class="summary">
+      Backend Systems Engineer and Software Architect specializing in designing high-throughput APIs, reliable database schemas, and resilient distributed systems. Proven track record of architecting financial data ingestion pipelines, automated risk-evaluation state machines, and secure transaction networks across fintech and Web3 domains. Expert in Python (FastAPI), Rust (smart contracts), SQL/NoSQL databases, and containerized microservices.
+    </div>
+  </div>
+
+  <!-- Core Competencies -->
+  <div class="section">
+    <div class="section-title">Core Competencies</div>
+    <div class="competency-grid">
+      <div class="comp-row"><span class="comp-cat">Backend Engineering</span><span class="comp-items">RESTful APIs, WebSockets, Server-Sent Events (SSE), API Gateways, Rate Limiting, Async Task Queues (Celery), Caching (Redis), Pydantic Validation</span></div>
+      <div class="comp-row"><span class="comp-cat">Databases &amp; Pipelines</span><span class="comp-items">PostgreSQL (Indexing, Concurrency), TimescaleDB (Time-Series), SQLAlchemy 2.0 (Async ORM), Alembic Migrations, FAISS (Vector Search)</span></div>
+      <div class="comp-row"><span class="comp-cat">System Design &amp; DevOps</span><span class="comp-items">Docker, Microservices Architecture, CI/CD (GitHub Actions), Network Security, Unit &amp; Integration Testing (1,000+ Tests)</span></div>
+      <div class="comp-row"><span class="comp-cat">Web3 &amp; Fintech Logic</span><span class="comp-items">Rust/Soroban Smart Contracts, Stellar SDK, Transactional Escrows, Merkle Proofs, Invoice Splitting, Risk Assessment Engines</span></div>
+    </div>
+  </div>
+
+  <!-- Selected Technologies -->
+  <div class="section">
+    <div class="tech-badge-line">
+      Python &bull; Rust &bull; FastAPI &bull; PostgreSQL &bull; TimescaleDB &bull; Redis &bull; Celery &bull; Docker &bull; REST APIs &bull; WebSockets &bull; Soroban &bull; Stellar
+    </div>
+  </div>
+
+  <!-- Engineering Highlights -->
+  <div class="section">
+    <div class="section-title">Selected Engineering Highlights</div>
+    <div class="highlight-item">Architected high-performance data ingestion and transactional backends processing real-time market data and automated financial ledgers.</div>
+    <div class="highlight-item">Engineered secure, transactional smart contracts in Rust ensuring zero-trust, low-overhead contract execution across fintech and escrow systems.</div>
+    <div class="highlight-item">Implemented asynchronous job execution, caching layers, and database connection pools that optimized write throughput and eliminated network bottlenecks.</div>
+    <div class="highlight-item">Maintained exceptional backend quality across projects with 1,000+ certified unit and integration tests and forensic audit trails.</div>
+  </div>
+
+  <!-- Featured Projects -->
+  <div class="section">
+    <div class="section-title">Featured Projects</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">The Forge <span style="font-weight:400;color:#2a5c8a;font-size:9pt;">(Flagship Backend Project)</span></span>
+        <span class="entry-date">2025&ndash;2026</span>
+      </div>
+      <div class="entry-subtitle">AI-Driven Financial Data Ingestion &amp; Trading Engine</div>
+      <ul>
+        <li><strong>Designed a high-throughput data ingestion pipeline</strong> that scrapes real-time financial news via REST APIs, processes sentiment through 6 LLM providers, and routes structured data through governance gates before trade execution against Binance.</li>
+        <li><strong>Built a TimescaleDB-backed financial ledger</strong> storing trade decisions, trust audit trails, and execution logs with persistent cross-session state recovery and forensic query capabilities.</li>
+        <li><strong>Engineered a multi-provider API router</strong> with composite scoring, rate-limit handling, deterministic failover, and emergency state overrides across DeepSeek, NVIDIA, OpenAI, and 3 additional providers.</li>
+        <li><strong>Achieved 1,064+ certified tests</strong> across 8 subsystems with a 64.3% governed win rate and forensic audit trails for every routing and execution decision.</li>
+      </ul>
+      <div class="tech-tags">Python, LangChain, Pydantic, Binance REST API, TimescaleDB, Docker Compose, unittest</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Web3 Infrastructure &amp; Smart Contract Platform</span>
+        <span class="entry-date">2025&ndash;2026</span>
+      </div>
+      <div class="entry-subtitle">Fintech Escrow, Attestation &amp; Invoice Splitting Networks (5 Projects)</div>
+      <ul>
+        <li><strong>Developed five production-grade Soroban smart contracts</strong> in Rust: LiquiFact (invoice liquidity escrow), CommitLabs (liquidity commitment protocol), Veritasor (19-contract revenue attestation suite), VestFlow (token vesting), and Dongle (dApp registry).</li>
+        <li><strong>Built TypeScript SDKs and Web3 backends</strong>: stellarkit-api (Stellar Horizon wrapper with SSE streaming), split-sdk (on-chain invoice splitting with webhook validation and multi-tenant routing), and Express.js attestation API gateway.</li>
+        <li><strong>Implemented Merkle proof verification</strong>, schema versioning, gas optimization, and security auditing across all contracts with 95%+ test coverage.</li>
+        <li><strong>Designed multi-wallet transactional frontends</strong> (Next.js, React) with Freighter, Albedo, xBull, and Rabet integration and WCAG 2.1 AA compliance.</li>
+      </ul>
+      <div class="tech-tags">Rust, soroban-sdk, Node.js, Express, PostgreSQL, Stellar SDK, TypeScript, Next.js</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">AfroVibra</span>
+        <span class="entry-date">2025&ndash;2026</span>
+      </div>
+      <div class="entry-subtitle">Multi-Modal Data Processing &amp; Analytics Backend</div>
+      <ul>
+        <li><strong>Architected an async FastAPI backend</strong> with SQLAlchemy 2.0 (async ORM), PostgreSQL, Redis caching, and Celery task queues for high-volume background media processing and user analytics.</li>
+        <li><strong>Designed a multi-modal data pipeline</strong> fusing facial expression, voice (Librosa MFCC), and text data into structured emotional state vectors for downstream recommendation services.</li>
+        <li><strong>Implemented predictive analytics services</strong>: user churn probability, session duration forecasting, and 6-month cultural trend predictions across 7 regional datasets.</li>
+        <li><strong>Built a real-time WebSocket layer</strong> for mood visualization and a ZoN AI companion with FAISS vector memory and RAG-based knowledge retrieval via OpenRouter.</li>
+      </ul>
+      <div class="tech-tags">Python, FastAPI, PostgreSQL, Redis, Celery, SQLAlchemy 2.0, WebSockets, Docker</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">CreatorOS</span>
+        <span class="entry-date">2025&ndash;2026</span>
+      </div>
+      <div class="entry-subtitle">Context-Assembly Kernel &amp; AI State Management Backend</div>
+      <ul>
+        <li><strong>Designed a context-assembly kernel</strong> enforcing strict lifecycle ordering: workspace, project, profile, memory, and context are fully assembled before any model executes.</li>
+        <li><strong>Built stateless REST API endpoints</strong> with Pydantic validation, a production state machine (Ideation through Archived), and artifact lineage tracking across the pipeline.</li>
+        <li><strong>Implemented FAISS vector indices</strong> for persistent semantic memory with text embeddings and CLIP-based visual similarity search.</li>
+        <li><strong>Qualified for AMD AI Developer Hackathon Unicorn Track</strong> with 77 passing tests and observable, testable architecture.</li>
+      </ul>
+      <div class="tech-tags">Python, FastAPI, FAISS, Pydantic, Jinja2, Alpine.js, Render</div>
+    </div>
+  </div>
+
+  <!-- Industry Experience -->
+  <div class="section">
+    <div class="section-title">Industry Experience</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Web Developer</span>
+        <span class="entry-date">2021&ndash;2024</span>
+      </div>
+      <div class="entry-org">Palace Record, Abuja</div>
+      <ul>
+        <li>Developed and maintained backend systems and digital infrastructure, improving data delivery and content management workflows.</li>
+        <li>Built interactive APIs and frontend interfaces supporting media distribution, artist catalogs, and asset management.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Music Producer &amp; Audio Engineer</span>
+        <span class="entry-date">2011&ndash;2015</span>
+      </div>
+      <div class="entry-org">Artleon Communication, Lagos</div>
+      <ul>
+        <li>Produced and engineered audio content for communication and media projects, managing end-to-end production pipelines.</li>
+        <li>Delivered high-quality audio assets meeting broadcast and client specifications under tight deadlines.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Technical Support Specialist</span>
+        <span class="entry-date">2008&ndash;2010</span>
+      </div>
+      <div class="entry-org">Visafone Communications, Lagos</div>
+      <ul>
+        <li>Provided tier-1 and tier-2 technical support for mobile telecommunications customers, resolving connectivity and device issues.</li>
+        <li>Maintained service quality metrics and escalated complex issues to backend engineering teams.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Open Source -->
+  <div class="section">
+    <div class="section-title">Open Source</div>
+    <div class="entry-desc">
+      <a href="https://github.com/AlphaMaleBaDI/stellarkit-api" style="color:#2a5c8a;text-decoration:none;"><strong>stellarkit-api</strong></a> - Developer utility API wrapping Stellar Horizon with fee estimation, Soroban contract inspection, and SSE streaming<br>
+      <a href="https://github.com/AlphaMaleBaDI/split-sdk" style="color:#2a5c8a;text-decoration:none;"><strong>split-sdk</strong></a> - TypeScript SDK for on-chain invoice splitting with multi-wallet routing and webhook validation<br>
+      <a href="https://github.com/AlphaMaleBaDI/Dongle-Smartcontract" style="color:#2a5c8a;text-decoration:none;"><strong>Dongle-Smartcontract</strong></a> - On-chain dApp discovery registry for the Stellar network (Soroban)
+    </div>
+  </div>
+
+  <!-- Education -->
+  <div class="section">
+    <div class="section-title">Education &amp; Certifications</div>
+    <div class="edu-item"><strong>Higher National Diploma (HND), Computer Science</strong> <span class="date">- 2005</span></div>
+    <div class="edu-item"><strong>Full-Stack Software Development</strong> - Coursera <span class="date">(Python, JavaScript, TypeScript, React, Rust)</span></div>
+    <div class="edu-item"><strong>Python Development</strong> - Mimo</div>
+    <div class="edu-item"><strong>AI/ML Integration</strong> - FreeCodeCamp</div>
+    <div class="edu-item"><strong>Networking Fundamentals</strong> - Cisco / FreeCodeCamp</div>
+    <div class="edu-item"><strong>Python Fundamentals</strong> - FreeCodeCamp</div>
+    <div class="edu-item"><strong>Cybersecurity and Ethical Hacking</strong> - SkillsForAll</div>
+  </div>
+
+  <!-- Awards -->
+  <div class="section">
+    <div class="section-title">Awards &amp; Recognition</div>
+    <div class="entry-desc">
+      <strong>AMD AI Developer Hackathon</strong> - Unicorn Track Qualification (2026)<br>
+      Recognized for CreatorOS: an adaptive creator intelligence platform with hybrid AMD Fireworks inference<br>
+      <strong>CreatorOS featured on AMD AI Hackathon Leaderboard</strong> - Competitive ranking among AI developer submissions
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

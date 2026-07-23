@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christopher Israel Ahiome - Backend Systems Engineer | Portfolio</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background: #0a0e17;
+  }
+  .hero {
+    text-align: center;
+    padding: 80px 20px 50px;
+    background: linear-gradient(170deg, #0a0e17 0%, #111827 100%);
+    border-bottom: 1px solid #1e293b;
+  }
+  .hero h1 { font-size: 2.5rem; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+  .hero .role { font-size: 1.15rem; color: #3b82f6; font-weight: 500; margin-top: 4px; }
+  .hero .tagline { font-size: 1rem; color: #94a3b8; margin-top: 8px; max-width: 650px; margin-left: auto; margin-right: auto; }
+  .hero .links { margin-top: 20px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .hero .links a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; padding: 8px 16px; border: 1px solid #334155; border-radius: 6px; transition: all 0.2s; }
+  .hero .links a:hover { color: #fff; border-color: #3b82f6; background: rgba(59,130,246,0.1); }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+  .section { padding: 50px 0; }
+  .section-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #3b82f6; margin-bottom: 8px; font-weight: 600; }
+  .section-heading { font-size: 1.6rem; color: #fff; font-weight: 700; margin-bottom: 24px; }
+  .divider { border: none; border-top: 1px solid #1e293b; margin: 0; }
+  .project-card {
+    background: #111827; border: 1px solid #1e293b; border-radius: 10px;
+    padding: 28px 30px; margin-bottom: 20px; transition: border-color 0.2s;
+  }
+  .project-card:hover { border-color: #334155; }
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+  .project-card h3 { font-size: 1.15rem; color: #fff; font-weight: 700; }
+  .badge { font-size: 0.7rem; background: rgba(59,130,246,0.15); color: #3b82f6; padding: 3px 10px; border-radius: 20px; font-weight: 600; white-space: nowrap; }
+  .badge.green { background: rgba(34,197,94,0.15); color: #22c55e; }
+  .badge.amber { background: rgba(245,158,11,0.15); color: #f59e0b; }
+  .subtitle { font-size: 0.95rem; color: #3b82f6; font-weight: 500; margin-bottom: 10px; }
+  .desc { font-size: 0.9rem; color: #94a3b8; line-height: 1.6; margin-bottom: 14px; }
+  .tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .tech span { font-size: 0.75rem; background: #1e293b; color: #94a3b8; padding: 3px 10px; border-radius: 4px; font-weight: 500; }
+  .card-links { display: flex; gap: 14px; flex-wrap: wrap; }
+  .card-links a { font-size: 0.85rem; color: #3b82f6; text-decoration: none; font-weight: 500; }
+  .card-links a:hover { text-decoration: underline; }
+  .arch-block {
+    background: #0f1724; border: 1px solid #1e293b; border-radius: 8px; padding: 20px;
+    margin-top: 12px; font-family: 'Consolas','Fira Code',monospace; font-size: 0.78rem;
+    line-height: 1.7; color: #64748b; overflow-x: auto; white-space: pre;
+  }
+  .arch-block .node { color: #3b82f6; font-weight: 700; }
+  .arch-block .arrow { color: #334155; }
+  .arch-block .label { color: #94a3b8; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-top: 20px; }
+  .stat-box { background: #111827; border: 1px solid #1e293b; border-radius: 8px; padding: 20px; text-align: center; }
+  .stat-box .number { font-size: 1.8rem; font-weight: 700; color: #3b82f6; }
+  .stat-box .label { font-size: 0.75rem; color: #64748b; margin-top: 2px; text-transform: uppercase; letter-spacing: 1px; }
+  .footer { text-align: center; padding: 40px 20px; border-top: 1px solid #1e293b; color: #475569; font-size: 0.85rem; }
+  .footer a { color: #3b82f6; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  .about { padding: 0 0 10px; }
+  .about-text { font-size: 0.95rem; color: #94a3b8; line-height: 1.7; max-width: 700px; }
+  .philosophy { padding: 10px 0 0; }
+  .philosophy-text { font-size: 0.95rem; color: #94a3b8; line-height: 1.7; max-width: 700px; font-style: italic; }
+  .currently-building .project-card { border-left: 3px solid #3b82f6; }
+  .currently-building .status-line { font-size: 0.8rem; color: #64748b; margin-top: 8px; }
+  .highlights-list { list-style: none; padding: 0; }
+  .highlights-list li { font-size: 0.9rem; color: #94a3b8; padding: 6px 0; padding-left: 20px; position: relative; }
+  .highlights-list li::before { content: "\2192"; position: absolute; left: 0; color: #3b82f6; font-weight: 700; }
+  @media print {
+    body { background: #fff; color: #1a1a1a; }
+    .hero { background: #fff; border-bottom: 2px solid #000; padding: 30px 20px; }
+    .hero h1 { color: #000; }
+    .hero .role { color: #2a5c8a; }
+    .hero .tagline, .desc { color: #333; }
+    .hero .links a { color: #333; border-color: #ccc; }
+    .divider { border-color: #ddd; }
+    .project-card { background: #f9f9f9; border-color: #ddd; }
+    .project-card h3 { color: #000; }
+    .subtitle { color: #2a5c8a; }
+    .tech span { background: #eee; color: #333; }
+    .card-links a { color: #2a5c8a; }
+    .arch-block { background: #f4f4f4; border-color: #ddd; color: #555; }
+    .arch-block .node { color: #2a5c8a; }
+    .stat-box { background: #f9f9f9; border-color: #ddd; }
+    .stat-box .number { color: #2a5c8a; }
+    .stat-box .label { color: #666; }
+    .section-title { color: #2a5c8a; }
+    .section-heading { color: #000; }
+    .footer { color: #666; border-color: #ddd; }
+    .about-text, .philosophy-text { color: #333; }
+    .highlights-list li { color: #333; }
+    .currently-building .project-card { border-left-color: #2a5c8a; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>Christopher Israel &ldquo;OdiBa&rdquo; Ahiome</h1>
+  <div class="role">Backend Systems Engineer &bull; API &amp; Database Architect &bull; Fintech Engineer</div>
+  <div class="tagline">Engineering reliable, secure, and high-throughput backend systems for financial data pipelines, payment networks, and distributed transaction infrastructure.</div>
+  <div class="links">
+    <a href="https://github.com/AlphaMaleBaDI">GitHub</a>
+    <a href="https://linkedin.com/in/ahiome-christopher-102b11141">LinkedIn</a>
+    <a href="mailto:christopherisraelahiome@gmail.com">Email</a>
+    <a href="tel:+2347048702030">07048702030</a>
+  </div>
+</div>
+
+<!-- About -->
+<div class="container">
+  <div class="section">
+    <div class="about">
+      <div class="section-title">About</div>
+      <p class="about-text">I am a backend systems engineer passionate about building resilient financial infrastructure and developer platforms. My work focuses on designing scalable APIs, distributed systems, blockchain integrations, and AI-powered backend services. I enjoy designing systems that remain understandable, maintainable, and reliable as they scale from prototype to production.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- Stats -->
+<div class="container">
+  <div class="section">
+    <div class="section-title">Impact</div>
+    <div class="stats">
+      <div class="stat-box"><div class="number">11</div><div class="label">Production Systems</div></div>
+      <div class="stat-box"><div class="number">1,500+</div><div class="label">Certified Tests</div></div>
+      <div class="stat-box"><div class="number">25+</div><div class="label">Smart Contracts</div></div>
+      <div class="stat-box"><div class="number">95%+</div><div class="label">Contract Coverage</div></div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 1: Selected Engineering Work -->
+<div class="container">
+  <div class="section">
+    <div class="section-title">Section 01</div>
+    <div class="section-heading">Selected Engineering Work</div>
+
+    <!-- ProofPass -->
+    <div class="project-card">
+      <div class="card-header">
+        <h3>ProofPass</h3>
+        <span class="badge green">Live on Stellar Testnet</span>
+      </div>
+      <div class="subtitle">Zero-Knowledge Age Verification Protocol</div>
+      <div class="desc">
+        A reusable zero-knowledge identity credential system for the Stellar network. Users prove they are at least 18 without revealing their actual age. Circom zk-SNARK proofs are generated entirely in-browser via snarkjs WASM, verified on-chain by a Soroban smart contract using native BLS12-381 pairing checks, and issued as soulbound on-chain credentials. Other Web3 apps can instantly query credential status without re-verification. Built for the Stellar Hacks: Real-World ZK hackathon.
+      </div>
+      <div class="tech">
+        <span>Circom</span><span>Groth16</span><span>snarkjs</span><span>Soroban</span><span>Rust</span><span>React</span><span>Freighter</span><span>BLS12-381</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/AlphaMaleBaDI/ProofPass">GitHub</a>
+        <a href="https://stellar.expert/explorer/testnet/contract/CD4O7LLL726BLIGN7OC4L24N3N3Q4QQ6AQI7HVCG3BMQFR664DOVPWPM">Stellar Expert</a>
+      </div>
+      <div class="arch-block"><span class="label">Architecture:</span>
+<span class="node">User (Private Age)</span> <span class="arrow">--&gt;</span> <span class="node">snarkjs WASM (In-Browser)</span> <span class="arrow">--&gt;</span> <span class="node">Groth16 Proof</span> <span class="arrow">--&gt;</span> <span class="node">Freighter Wallet</span> <span class="arrow">--&gt;</span> <span class="node">Soroban Contract</span>
+                                                                                                                <span class="arrow">|</span>
+                                                                                              <span class="node">BLS12-381 Pairing Check</span> <span class="arrow">--&gt;</span> <span class="node">On-Chain Credential Issued</span></div>
+    </div>
+
+    <!-- TrustLink -->
+    <div class="project-card">
+      <div class="card-header">
+        <h3>TrustLink</h3>
+        <span class="badge green">Live on Stellar</span>
+      </div>
+      <div class="subtitle">Decentralized Escrow Payments for African Social Commerce</div>
+      <div class="desc">
+        A Next.js web application that makes decentralized escrow feel as simple as sending a payment link. Vendors generate a Smart Escrow Link in seconds. Buyers pay with a Stellar wallet, and funds are held by a Soroban contract until delivery confirmation or dispute resolution. Designed for WhatsApp and Instagram DM commerce across Africa.
+      </div>
+      <div class="tech">
+        <span>Next.js</span><span>TypeScript</span><span>Soroban</span><span>Stellar SDK</span><span>Freighter</span><span>Upstash Redis</span><span>Playwright</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/AlphaMaleBaDI/trust-link-frontend">GitHub</a>
+      </div>
+      <div class="arch-block"><span class="label">Escrow Flow:</span>
+<span class="node">Vendor</span> <span class="arrow">--&gt;</span> <span class="node">Generate Escrow Link</span> <span class="arrow">--&gt;</span> <span class="node">Buyer Pays (Stellar Wallet)</span> <span class="arrow">--&gt;</span> <span class="node">Soroban Contract Locks Funds</span>
+                                                              <span class="arrow">|</span>
+                                              <span class="node">Delivery Confirmed</span> <span class="arrow">--&gt;</span> <span class="node">Release to Vendor</span>
+                                              <span class="node">Dispute Filed</span> <span class="arrow">--&gt;</span> <span class="node">Admin Resolution Panel</span></div>
+    </div>
+
+    <!-- Creditra -->
+    <div class="project-card">
+      <div class="card-header">
+        <h3>Creditra</h3>
+        <span class="badge green">DeFi Protocol</span>
+      </div>
+      <div class="subtitle">Risk-Priced Decentralized Credit Protocol</div>
+      <div class="desc">
+        A decentralized credit protocol that evaluates on-chain behavior to underwrite and dynamically price credit lines without overcollateralization. The dashboard surfaces a live risk gauge, credit-line management, draw/repay flows, and full transaction history. Built with WCAG 2.1 AA accessibility compliance across every component.
+      </div>
+      <div class="tech">
+        <span>React 18</span><span>TypeScript</span><span>Vite</span><span>Stellar SDK</span><span>Multi-Wallet</span><span>Vitest</span><span>axe-core</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/AlphaMaleBaDI/Creditra-Frontend">GitHub</a>
+      </div>
+    </div>
+
+    <!-- The Forge -->
+    <div class="project-card">
+      <div class="card-header">
+        <h3>The Forge</h3>
+        <span class="badge">Flagship Project</span>
+      </div>
+      <div class="subtitle">AI-Driven Financial Data Ingestion &amp; Trading Engine</div>
+      <div class="desc">
+        A high-throughput backend pipeline that ingests real-time financial news via REST APIs, routes structured data through 6 LLM providers with governance scoring, and executes risk-gated trades against Binance. Built with a TimescaleDB-backed financial ledger, persistent cross-session state recovery, and forensic audit trails for every decision.
+      </div>
+      <div class="tech">
+        <span>Python</span><span>LangChain</span><span>Pydantic</span><span>Binance API</span><span>TimescaleDB</span><span>Docker</span><span>1,064+ Tests</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/AlphaMaleBaDI/The-Forge">GitHub</a>
+      </div>
+      <div class="arch-block"><span class="label">Architecture:</span>
+<span class="node">News API</span> <span class="arrow">--&gt;</span> <span class="node">Ingestor</span> <span class="arrow">--&gt;</span> <span class="node">LLM Analyst Pool (6 Providers)</span> <span class="arrow">--&gt;</span> <span class="node">Governance Router</span> <span class="arrow">--&gt;</span> <span class="node">Risk Engine</span> <span class="arrow">--&gt;</span> <span class="node">Execution</span>
+              <span class="arrow">|</span>                    <span class="arrow">|</span>                              <span class="arrow">|</span>                                    <span class="arrow">|</span>
+              <span class="arrow">v</span>                    <span class="arrow">v</span>                              <span class="arrow">v</span>                                    <span class="arrow">v</span>
+      <span class="node">TimescaleDB</span>    <span class="node">Trust Scores</span>                <span class="node">Sentiment Gate</span>              <span class="node">Audit Trails</span></div>
+    </div>
+
+    <!-- Veritasor Backend -->
+    <div class="project-card">
+      <div class="card-header">
+        <h3>Veritasor Backend</h3>
+        <span class="badge amber">Payment Integrations</span>
+      </div>
+      <div class="subtitle">Revenue Attestation API Gateway &amp; Payment Infrastructure</div>
+      <div class="desc">
+        An API gateway handling revenue data normalization, Merkle proof generation, and on-chain submission to Soroban contracts. Includes JWT authentication, business management, anomaly detection with risk scoring (0-100), and payment processor integrations with Stripe, Razorpay, and Shopify OAuth for fee collection and e-commerce data.
+      </div>
+      <div class="tech">
+        <span>Node.js</span><span>TypeScript</span><span>Express</span><span>PostgreSQL</span><span>Stripe</span><span>Razorpay</span><span>Prometheus</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/AlphaMaleBaDI/Veritasor-Backend">GitHub</a>
+      </div>
+    </div>
+
+    <!-- DarkEasternerCollections -->
+    <div class="project-card">
+      <div class="card-header">
+        <h3>DarkEasternerCollections</h3>
+        <span class="badge green">Live in Production</span>
+      </div>
+      <div class="subtitle">Luxury Afro-Luxe E-Commerce Platform</div>
+      <div class="desc">
+        A full-stack luxury e-commerce platform with a commerce-first architecture that separates storefront presentation from administrative operations through a dedicated management interface. Features a complete admin dashboard with product CRUD, inventory management (3-tier: available/coming soon/out of stock), inquiry workflow with WhatsApp concierge integration, Supabase Auth with email-based admin allowlist, and row-level security across all tables. Built with a server-side rendering pipeline for SEO-optimized product pages.
+      </div>
+      <div class="tech">
+        <span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>Tailwind CSS 4</span><span>Supabase</span><span>PostgreSQL</span><span>Framer Motion</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/AlphaMaleBaDI/DarkEasternerCollections">GitHub</a>
+        <a href="https://darkeasternercollections.com">Live Demo</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 2: Smart Contract Infrastructure -->
+<div class="container">
+  <div class="section">
+    <div class="section-title">Section 02</div>
+    <div class="section-heading">Smart Contract Infrastructure</div>
+
+    <!-- Veritasor Contracts -->
+    <div class="project-card">
+      <div class="card-header">
+        <h3>Veritasor Contracts</h3>
+        <span class="badge">19 Contracts</span>
+      </div>
+      <div class="subtitle">Revenue Attestation Protocol (Rust/Soroban)</div>
+      <div class="desc">
+        A massive Rust workspace with 19 contract crates covering revenue attestation storage, dynamic fee schedules (tier/volume discounts), attestor staking with slashing, audit logs, revenue bonds, revenue streams, settlement logic, revenue sharing, DAO governance, and lender access control. 130+ tests with 95%+ line coverage enforced per crate.
+      </div>
+      <div class="tech">
+        <span>Rust</span><span>Soroban SDK</span><span>WASM</span><span>cargo-llvm-cov</span><span>130+ Tests</span><span>95%+ Coverage</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/AlphaMaleBaDI/Veritasor-Contracts">GitHub</a>
+      </div>
+    </div>
+
+    <!-- LiquiFact -->
+    <div class="project-card">
+      <div class="card-header">
+        <h3>LiquiFact</h3>
+      </div>
+      <div class="subtitle">Invoice Liquidity Escrow Network</div>
+      <div class="desc">
+        Soroban smart contracts for an invoice factoring platform. Holds investor funds for tokenized invoices until settlement. Supports tiered yield based on commitment lock periods, per-investor contribution tracking, legal holds, attestation logging, SME collateral pledges, and schema migration across 6 versions. 12 test modules with 95%+ coverage enforcement.
+      </div>
+      <div class="tech">
+        <span>Rust</span><span>Soroban</span><span>WASM</span><span>proptest</span><span>12 Test Modules</span><span>95%+ Coverage</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/AlphaMaleBaDI/Liquifact-contracts">GitHub</a>
+      </div>
+    </div>
+
+    <!-- CommitLabs -->
+    <div class="project-card">
+      <div class="card-header">
+        <h3>CommitLabs</h3>
+      </div>
+      <div class="subtitle">Liquidity Commitment Protocol</div>
+      <div class="desc">
+        Decentralized platform for managing liquidity commitments on Stellar. Users create, fund, and trade on-chain commitments that lock assets for a specified duration in exchange for yield. Risk profiles: Safe (5% APY), Balanced (7% APY), Aggressive (10% APY). Includes a secondary marketplace for trading commitments, compliance attestation scoring, and emergency pause mechanisms.
+      </div>
+      <div class="tech">
+        <span>Rust</span><span>Soroban</span><span>Next.js</span><span>TypeScript</span><span>Zod</span><span>Recharts</span><span>Vitest</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/AlphaMaleBaDI/Commitlabs-Frontend">GitHub</a>
+      </div>
+    </div>
+
+    <!-- VestFlow -->
+    <div class="project-card">
+      <div class="card-header">
+        <h3>VestFlow</h3>
+        <span class="badge green">Live on Testnet</span>
+      </div>
+      <div class="subtitle">Trustless Token Vesting on Stellar</div>
+      <div class="desc">
+        Smart contracts and frontend for trustless token vesting schedules. Supports Linear, Cliff, and LinearWithCliff vesting kinds with revocable and irrevocable options. No custodian, no multisig, no trust required. Fully immutable deployment with on-chain events for off-chain indexing. Deployed on Stellar Testnet.
+      </div>
+      <div class="tech">
+        <span>Rust</span><span>Soroban</span><span>Next.js 16</span><span>TypeScript</span><span>Freighter</span><span>cargo test</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/AlphaMaleBaDI/vestflow">GitHub</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 3: Backend Engineering & Infrastructure -->
+<div class="container">
+  <div class="section">
+    <div class="section-title">Section 03</div>
+    <div class="section-heading">Backend Engineering &amp; Infrastructure</div>
+
+    <!-- PetChain -->
+    <div class="project-card">
+      <div class="card-header">
+        <h3>PetChain</h3>
+        <span class="badge amber">Full-Stack</span>
+      </div>
+      <div class="subtitle">Decentralized Pet Medical Records (NestJS Backend)</div>
+      <div class="desc">
+        A full-stack NestJS backend with 47+ modules: pets, medical records, vaccinations, prescriptions, surgeries, vet verification, appointments, emergency services, QR codes, zero-knowledge proofs, blockchain integration, GDPR compliance, MFA, Elasticsearch search, push notifications, and certificate management. Deployed with Docker, Kubernetes, and Nginx reverse proxy.
+      </div>
+      <div class="tech">
+        <span>NestJS</span><span>TypeScript</span><span>PostgreSQL</span><span>Redis</span><span>Docker/K8s</span><span>Elasticsearch</span><span>k6</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/AlphaMaleBaDI/petChain-Frontend">GitHub</a>
+      </div>
+      <div class="arch-block"><span class="label">Backend Stack:</span>
+<span class="node">HTTP Request</span> <span class="arrow">--&gt;</span> <span class="node">Nginx Reverse Proxy</span> <span class="arrow">--&gt;</span> <span class="node">NestJS API (47 Modules)</span> <span class="arrow">--&gt;</span> <span class="node">PostgreSQL</span>
+                                              <span class="arrow">|</span>
+                                     <span class="node">Redis Cache</span> + <span class="node">BullMQ Queues</span> + <span class="node">Elasticsearch</span>
+                                              <span class="arrow">|</span>
+                              <span class="node">Stellar Blockchain</span> + <span class="node">IPFS</span> + <span class="node">ZKP Verification</span></div>
+    </div>
+
+    <!-- Fluxora Backend -->
+    <div class="project-card">
+      <div class="card-header">
+        <h3>Fluxora Backend</h3>
+      </div>
+      <div class="subtitle">Blockchain Event Indexer with Batch Processing</div>
+      <div class="desc">
+        High-performance contract event indexer with optimized batch processing achieving 50x insert throughput over single-row insertion. Built with OpenTelemetry tracing, Prometheus metrics, structured logging, WebSocket live streaming, and comprehensive security (Helmet, rate limiting, parameterized queries). 51 test files covering every subsystem.
+      </div>
+      <div class="tech">
+        <span>Node.js</span><span>TypeScript</span><span>Express</span><span>PostgreSQL</span><span>Redis</span><span>OpenTelemetry</span><span>WebSocket</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/AlphaMaleBaDI/Fluxora-Backend">GitHub</a>
+      </div>
+    </div>
+
+    <!-- StellarKit API -->
+    <div class="project-card">
+      <div class="card-header">
+        <h3>StellarKit API</h3>
+      </div>
+      <div class="subtitle">Developer Utility API for Stellar Blockchain</div>
+      <div class="desc">
+        A REST API wrapping the Stellar Horizon blockchain with 18+ endpoints: fee estimation (economy/standard/priority), account details, transaction history, asset metadata, liquidity pool analytics, claimable balance evaluation, DEX order book data, Soroban contract inspection, and live transaction streaming via SSE. Includes API key authentication, cursor-based pagination, and standardized response envelopes.
+      </div>
+      <div class="tech">
+        <span>Node.js</span><span>Express</span><span>Stellar SDK</span><span>Jest</span><span>Supertest</span><span>SSE Streaming</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/AlphaMaleBaDI/stellarkit-api">GitHub</a>
+      </div>
+    </div>
+
+    <!-- AfroVBra -->
+    <div class="project-card">
+      <div class="card-header">
+        <h3>AfroVBra</h3>
+      </div>
+      <div class="subtitle">Multi-Modal Data Processing &amp; Analytics Backend</div>
+      <div class="desc">
+        An async FastAPI backend processing multi-modal data (facial expression, voice MFCC, text sentiment) into structured emotional state vectors. Built with SQLAlchemy 2.0 async ORM, PostgreSQL, Redis caching, Celery task queues for high-volume background processing, and predictive analytics services covering user churn, session forecasting, and cultural trend predictions across 7 regional datasets.
+      </div>
+      <div class="tech">
+        <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Redis</span><span>Celery</span><span>SQLAlchemy 2.0</span><span>WebSockets</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/AlphaMaleBaDI/AfroVBra">GitHub</a>
+      </div>
+      <div class="arch-block"><span class="label">Backend Pipeline:</span>
+<span class="node">HTTP/WebSocket</span> <span class="arrow">--&gt;</span> <span class="node">FastAPI Router</span> <span class="arrow">--&gt;</span> <span class="node">Service Layer</span> <span class="arrow">--&gt;</span> <span class="node">CRUD (Repository)</span> <span class="arrow">--&gt;</span> <span class="node">PostgreSQL</span>
+                                            <span class="arrow">|</span>                    <span class="arrow">|</span>
+                                            <span class="arrow">v</span>                    <span class="arrow">v</span>
+                                   <span class="node">Celery Workers</span>     <span class="node">Redis Cache</span></div>
+    </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- Currently Building -->
+<div class="container">
+  <div class="section currently-building">
+    <div class="section-title">In Progress</div>
+    <div class="section-heading">Currently Building</div>
+    <div class="project-card">
+      <div class="card-header">
+        <h3>CreatorOS</h3>
+      </div>
+      <div class="subtitle">AI Operating System for Creators</div>
+      <div class="desc">
+        Building an AI-native operating system centered on context assembly, semantic memory, multi-agent orchestration, and artifact generation.
+      </div>
+      <div class="tech">
+        <span>Python</span><span>FastAPI</span><span>FAISS</span><span>Multi-Agent</span><span>PyTorch</span>
+      </div>
+      <div class="status-line">Actively evolving through hackathons, open-source collaboration, and ongoing systems research.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- Engineering Philosophy -->
+<div class="container">
+  <div class="section philosophy">
+    <div class="section-title">How I Think</div>
+    <div class="section-heading">Engineering Philosophy</div>
+    <p class="philosophy-text">I believe good software is built on clear architecture, measurable correctness, and systems that remain understandable long after the first release. I optimize for maintainability before complexity, correctness before cleverness, and clear interfaces before abstraction.</p>
+    <ul class="highlights-list" style="margin-top: 20px;">
+      <li>Built full-stack applications from architecture to deployment</li>
+      <li>Designed scalable service-oriented backend systems</li>
+      <li>Integrated blockchain and Web3 technologies into production systems</li>
+      <li>Strong debugging and production issue resolution</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>Christopher Israel &ldquo;OdiBa&rdquo; Ahiome &mdash; Abuja, Nigeria</p>
+  <p style="margin-top:6px;">
+    <a href="mailto:christopherisraelahiome@gmail.com">christopherisraelahiome@gmail.com</a> &bull;
+    <a href="tel:+2347048702030">07048702030</a> &bull;
+    <a href="https://github.com/AlphaMaleBaDI">GitHub</a> &bull;
+    <a href="https://linkedin.com/in/ahiome-christopher-102b11141">LinkedIn</a>
+  </p>
+</div>
+
+</body>
+</html>

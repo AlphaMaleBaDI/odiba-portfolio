@@ -1,0 +1,5 @@
+.vercel/
+node_modules/
+*.pdf
+email1.txt
+email2.txt
