@@ -959,15 +959,15 @@
 
       <div class="stats-grid">
         <div class="stat-card reveal">
-          <div class="stat-number" data-target="11">0</div>
+          <div class="stat-number" data-target="15">0</div>
           <div class="stat-label">Production Systems</div>
         </div>
         <div class="stat-card reveal">
-          <div class="stat-number" data-target="1500" data-suffix="+">0</div>
+          <div class="stat-number" data-target="2000" data-suffix="+">0</div>
           <div class="stat-label">Certified Unit Tests</div>
         </div>
         <div class="stat-card reveal">
-          <div class="stat-number" data-target="25" data-suffix="+">0</div>
+          <div class="stat-number" data-target="35" data-suffix="+">0</div>
           <div class="stat-label">Smart Contracts</div>
         </div>
         <div class="stat-card reveal">
@@ -989,10 +989,10 @@
       <!-- Filter Controls -->
       <div class="filter-controls reveal">
         <div class="filter-tabs">
-          <button class="tab-btn active" data-filter="all">All Systems <span class="tab-count">14</span></button>
-          <button class="tab-btn" data-filter="web3">ZK &amp; Web3 <span class="tab-count">7</span></button>
+          <button class="tab-btn active" data-filter="all">All Systems <span class="tab-count">18</span></button>
+          <button class="tab-btn" data-filter="web3">ZK &amp; Web3 <span class="tab-count">9</span></button>
           <button class="tab-btn" data-filter="ai">AI &amp; Trading <span class="tab-count">3</span></button>
-          <button class="tab-btn" data-filter="backend">Backend &amp; Infra <span class="tab-count">4</span></button>
+          <button class="tab-btn" data-filter="backend">Backend &amp; Infra <span class="tab-count">6</span></button>
         </div>
 
         <div class="search-box">
@@ -1387,6 +1387,112 @@
           </div>
         </div>
 
+        <!-- NEW: mobile-money -->
+        <div class="project-card reveal" data-category="backend">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">mobile-money</h3>
+              <span class="badge badge-green">Full Stack</span>
+            </div>
+            <div class="project-subtitle">Mobile Money to Stellar Cross-Border Payment Bridge</div>
+            <p class="project-desc">
+              Backend service bridging African mobile money providers (MTN MoMo, Airtel Money, Orange Money) with the Stellar blockchain for low-cost cross-border remittances. Features SEP-06/10/12/24/31 compliance, double-entry ledger, KYC/AML, PII encryption (AES-256-GCM), dynamic fee engine, and Kubernetes deployment with Terraform IaC.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Go</span>
+              <span class="tech-tag">Rust</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Kubernetes</span>
+              <span class="tech-tag">Terraform</span>
+              <span class="tech-tag">Stellar SDK</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/mobile-money" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
+        <!-- NEW: nester -->
+        <div class="project-card reveal" data-category="web3">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">nester</h3>
+              <span class="badge badge-cyan">DeFi Protocol</span>
+            </div>
+            <div class="project-subtitle">Decentralized Savings &amp; Liquidity Protocol</div>
+            <p class="project-desc">
+              DeFi savings protocol automating yield generation by diversifying deposits across multiple protocols (Aave, Blend, Compound) with instant crypto-to-fiat offramp settlement. Features Smart Vaults with automatic rebalancing, AI advisor for market analysis, Soroban smart contracts, and bank/mobile money settlement in ~3 seconds. Monorepo architecture.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Go</span>
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Soroban/Rust</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Redis</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/nester" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
+        <!-- NEW: Lumenpulse -->
+        <div class="project-card reveal" data-category="backend">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">Lumenpulse</h3>
+              <span class="badge badge-amber">Monorepo</span>
+            </div>
+            <div class="project-subtitle">Decentralized Crypto News &amp; Portfolio Platform</div>
+            <p class="project-desc">
+              Full-stack monorepo with news aggregation, sentiment analysis, portfolio visualization, and community content rewards via Soroban contracts. Includes 10+ on-chain contracts (vesting, treasury, crowdfund vault, matching pool), Python data processing pipeline, Prometheus/Grafana monitoring, and Docker deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Next.js 15</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Rust/Soroban</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Redis</span>
+              <span class="tech-tag">Grafana</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/Lumenpulse" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
+        <!-- NEW: TalentTrust Contracts -->
+        <div class="project-card reveal" data-category="web3">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title">TalentTrust Contracts</h3>
+              <span class="badge badge-green">41 Test Modules</span>
+            </div>
+            <div class="project-subtitle">Freelancer Escrow Protocol (Rust/Soroban)</div>
+            <p class="project-desc">
+              Soroban smart contracts for a decentralized freelancer escrow protocol. Handles milestone-based payouts with on-chain SAC token custody, reputation credentials, protocol fees, emergency circuit breakers, and dispute resolution. 41 Rust test modules with 95%+ negative path coverage. CI/CD with fmt, clippy, build, and test gates.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Rust</span>
+              <span class="tech-tag">Soroban SDK</span>
+              <span class="tech-tag">WASM</span>
+              <span class="tech-tag">cargo-llvm-cov</span>
+              <span class="tech-tag">GitHub Actions</span>
+            </div>
+          </div>
+
+          <div class="card-footer-links">
+            <a href="https://github.com/AlphaMaleBaDI/Talenttrust-Contracts" target="_blank" class="card-link">GitHub Repo &rarr;</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1604,7 +1710,7 @@
           responseLine.innerHTML = 'Rust, Soroban, Python, TypeScript, Node.js, NestJS, FastAPI, TimescaleDB, PostgreSQL, Redis, Docker, Circom/Groth16';
           break;
         case 'stats':
-          responseLine.innerHTML = '&bull; Production Systems: 11<br>&bull; Unit Tests: 1,500+<br>&bull; Smart Contracts: 25+<br>&bull; Line Coverage: 95%+';
+          responseLine.innerHTML = '&bull; Production Systems: 15<br>&bull; Unit Tests: 2,000+<br>&bull; Smart Contracts: 35+<br>&bull; Line Coverage: 95%+';
           break;
         case 'contact':
           responseLine.innerHTML = 'Email: <a href="mailto:christopherisraelahiome@gmail.com" style="color:var(--accent-cyan);">christopherisraelahiome@gmail.com</a> | Phone: 07048702030';
