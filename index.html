@@ -1714,6 +1714,50 @@
 
   <hr class="divider">
 
+  <!-- TESTIMONIALS SECTION -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-tag">What Maintainers Say</div>
+      <h2 class="section-heading">Open Source Reviews</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+
+        <div class="project-card reveal" style="border-left: 3px solid var(--accent-green);">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title" style="font-size: 1.1rem;">Clean Implementation</h3>
+              <span class="badge badge-green">Merged</span>
+            </div>
+            <p class="project-desc" style="font-style: italic; margin-top: 12px;">
+              &ldquo;Clean implementation, merging with thanks.&rdquo;
+            </p>
+            <div style="margin-top: 16px; font-size: 0.85rem; color: var(--text-muted);">
+              <span>mikewheeleer</span> &middot; <span>Liquifact PR #912</span> &middot; <span>1,226 additions</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal" style="border-left: 3px solid var(--accent-cyan);">
+          <div class="card-top">
+            <div class="card-meta">
+              <h3 class="project-title" style="font-size: 1.1rem;">Well Scoped &amp; Easy to Review</h3>
+              <span class="badge badge-cyan">Merged</span>
+            </div>
+            <p class="project-desc" style="font-style: italic; margin-top: 12px;">
+              &ldquo;Looks good &mdash; well scoped and easy to review. Merging.&rdquo;
+            </p>
+            <div style="margin-top: 16px; font-size: 0.85rem; color: var(--text-muted);">
+              <span>mikewheeleer</span> &middot; <span>Liquifact PR #994</span> &middot; <span>198 additions</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
   <!-- PHILOSOPHY SECTION -->
   <section class="section" id="philosophy">
     <div class="container">
@@ -1887,7 +1931,7 @@
 
       switch (cleanCmd) {
         case 'help':
-          responseLine.innerHTML = 'Available commands: <span class="t-accent">projects</span>, <span class="t-accent">stack</span>, <span class="t-accent">stats</span>, <span class="t-accent">contact</span>, <span class="t-accent">clear</span>';
+          responseLine.innerHTML = 'Available commands: <span class="t-accent">projects</span>, <span class="t-accent">stack</span>, <span class="t-accent">stats</span>, <span class="t-accent">testimonials</span>, <span class="t-accent">contact</span>, <span class="t-accent">clear</span>';
           break;
         case 'projects':
           responseLine.innerHTML = '&bull; ProofPass (ZK-SNARKs/Soroban)<br>&bull; The Forge (AI Trading Engine)<br>&bull; TrustLink (Stellar Escrow)<br>&bull; Veritasor (Revenue Attestation)<br>&bull; PetChain (NestJS 47-Module Backend)';
@@ -1897,6 +1941,9 @@
           break;
         case 'stats':
           responseLine.innerHTML = '&bull; Production Systems: 25<br>&bull; Unit Tests: 2,500+<br>&bull; Smart Contracts: 45+<br>&bull; Line Coverage: 95%+';
+          break;
+        case 'testimonials':
+          responseLine.innerHTML = '&bull; &ldquo;Clean implementation, merging with thanks.&rdquo; &mdash; mikewheeleer, Liquifact PR #912<br>&bull; &ldquo;Well scoped and easy to review. Merging.&rdquo; &mdash; mikewheeleer, Liquifact PR #994';
           break;
         case 'contact':
           responseLine.innerHTML = 'Email: <a href="mailto:christopherisraelahiome@gmail.com" style="color:var(--accent-cyan);">christopherisraelahiome@gmail.com</a> | Phone: 07048702030';
